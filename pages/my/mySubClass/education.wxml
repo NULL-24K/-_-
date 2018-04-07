@@ -1,0 +1,21 @@
+<!--pages/my/mySubClass/education.wxml-->
+
+
+<view class='backSty'>
+ <view wx:for="{{defDataArr}}">
+  <picker wx:if="{{index !=2 && index != 3}}" mode="{{item.pickerMode}}" range='{{item.pickerDataArr}}' bindchange="bindPicker" id='{{index}}' wx:key="{{index}}">
+   <userInfoCell title="{{item.title}}"
+                detail="{{valueArr[index]}}"
+                placeholderStr="必选">
+   </userInfoCell>
+  </picker>
+  <userInfoCell wx:else title="{{item.title}}"
+                detail="{{valueArr[index]}}"
+                placeholderStr="必填"
+                arrowImg="{{}}"
+                isDisabled="{{false}}">
+  </userInfoCell>
+  <view class='shortLineSty' wx:if="{{index!=(defDataArr.length-1)}}"></view>
+ </view>
+ <button class='subBtnSty' bindtap='submitData'>保存</button>
+</view>

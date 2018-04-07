@@ -1,0 +1,10 @@
+<!--pages/components/defCell/userInfoCell.wxml-->
+<view class='backSty'>
+ <!--这是我的界面cell组件  -->
+ <text class='titleSty'>{{title}}</text>
+ <view class='detailLightSty'>
+    <image wx:if="{{detailIsImg}}" src='{{detail}}' class='detailImgSty'></image>
+    <input wx:else disabled='{{isDisabled}}'  placeholder='{{placeholderStr}}' placeholder-style='font-size:12px;color:lightgray' value='{{detail}}' bindblur='_endInput' id='{{title}}'></input>
+ </view>
+ <image src='{{arrowImg}}' class='arrowSty'></image>
+</view>

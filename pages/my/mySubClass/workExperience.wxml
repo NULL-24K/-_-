@@ -1,0 +1,39 @@
+<!--pages/my/mySubClass/workExperience.wxml-->
+
+
+<view class='backSty'>
+  <view wx:for="{{styData}}" wx:key='{{index}}'>
+   <userInfoCell wx:if="{{index <=1}}" 
+                  title='{{item.title}}'
+                  placeholderStr="{{item.placehoderStr}}"
+                  arrowImg=""
+                  detail="{{valueArr[index]}}"
+                  isDisabled="{{false}}"
+                  bindendInput='onEndInput'>
+  </userInfoCell>
+   <picker wx:else mode='multiSelector' bindchange="bindPicker" range="{{item.pickDataArr}}" id="{{index}}">
+    <userInfoCell title='{{item.title}}'
+                  placeholderStr="{{item.placehoderStr}}"
+                  detail="{{valueArr[index]}}"
+                  ></userInfoCell>
+   </picker>
+   <view class='shortLineSty' wx:if="{{index!=(styData.length-1)}}"></view>
+  </view>
+  <text class='titleClass'>工作内容描述(*必填)</text>
+  <view class='textAreaBackSty'>
+   <textarea class='textareaSty' 
+            placeholder='简要描述您在该岗位的工作内容或职责范围等' 
+            maxlength='2000' 
+            bindinput='editTextArea'
+            bindconfirm='endEditArea'
+            bindblur='endEditArea'
+            value='{{inputValue}}'>
+    </textarea>
+   <view class='shortLineSty'></view>
+   <view class='notifBackSty'>
+    <text class='fangwenSty'>范文</text>
+    <text class='textNumSty'>{{inputTextNum+'/2000'}}</text>
+   </view>
+   <button class='subBtnSty' bindtap='submitData'>完成</button>
+  </view>
+</view>

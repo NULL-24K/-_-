@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加教育经历",
+  "usingComponents": {
+    "userInfoCell": "../../components/defCell/userInfoCell"
+  }
+}

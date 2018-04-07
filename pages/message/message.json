@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "消息",
+  "navigationBarBackgroundColor": "#eb12d4",
+  "usingComponents":{
+    "defCell":"../components/defCell/defcell"
+  }
+}

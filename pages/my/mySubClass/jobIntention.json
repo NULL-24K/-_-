@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "userInfoCell": "../../components/defCell/userInfoCell"
+  },
+  "navigationBarTitleText": "求职意向"
+}

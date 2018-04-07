@@ -1,0 +1,4 @@
+<!--pages/main/main.wxml-->
+<view>
+<label>{{textStr}}</label>
+</view>

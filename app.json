@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/main/main",
+    "pages/message/message",
+    "pages/my/my",
+    "pages/loginAndregister/login",
+    "pages/my/mySubClass/userInfoVC",
+    "pages/my/mySubClass/jobIntention",
+    "pages/my/mySubClass/workExperience",
+    "pages/my/mySubClass/education",
+    "pages/my/mySubClass/workList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d42180",
+    "navigationBarTitleText": "直🐝聘",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/main_sel.jpg",
+        "selectedIconPath": "pages/images/main_def.jpg"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "pages/images/message_def.jpg",
+        "selectedIconPath": "pages/images/message_sel.jpg"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "pages/images/my_def.jpg",
+        "selectedIconPath": "pages/images/my_sel.jpg"
+      }
+    ]
+  }
+}

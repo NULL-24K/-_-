@@ -1,0 +1,46 @@
+/* pages/components/defCell/defcell.wxss */
+
+.backSty{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 55pt;
+}
+
+.titleBackSty{
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+}
+
+.rightSty{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: flex-end;
+  height: 40pt;  
+}
+
+
+.image{
+width: 36pt;
+height: 36pt;
+margin-left: 15pt;
+margin-right: 15pt;
+}
+
+.titleLab{
+  font-size: 12pt;
+}
+
+.detailLabSty{
+  font-size: 9pt;
+}
+
+.lineSty{
+  background-color: lightgray;
+  width: 100%;
+  height: 1px;
+}
+

@@ -1,0 +1,26 @@
+<!--pages/loginAndregister/login.wxml-->
+<view class='backSty'>
+  <image class='iconSty' src='{{iconImg}}'></image>
+  <view class='inputBackSty'>
+   <image class='inputImgSty' src='{{numberImg}}'></image>
+   <input placeholder='请输入手机号码' 
+         placeholder-class='inptuPlaceSty' 
+          maxlength='11'
+          type='number'
+          class='inptuSty'
+            ></input>
+  </view>
+  <!-- <view class='linesty'></view> -->
+  <view class='inputBackSty'>
+   <image class='inputImgSty' src='{{psdImg}}'></image> 
+   <input placeholder='请输入密码' 
+          placeholder-class='inptuPlaceSty' 
+          password='true' 
+          class='inptuSty'></input>
+  </view>
+  <button class='loginBtnSty'>登录</button>
+  <view class='otherBtnBackSty'>
+    <text class='otherBtnSty'>立即注册</text>
+    <text class='otherBtnSty'>忘记密码</text>
+  </view>
+</view>

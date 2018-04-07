@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml-->
+
+<view class='backSty'>
+  <view class='iconBackSty'>
+    <!-- 个人资料 -->
+     <image  class='iconSty' src='{{icon}}' bindtap='pushUserInfo'></image>
+     <text class='userInfoSty' bindtap='pushUserInfo'>{{userInfo.name+' '+userInfo.sex+' '+userInfo.diop+' '+userInfo.jobYears}}</text>
+  </view>
+  <view class='cellBackSty' bindtap='pushJobIntentionVC'>
+    <!-- 求职意向 -->
+      <view class='lineStyTop'></view>
+      <mycell title='求职意向'
+             detail='{{userDescription.value}}'
+             placeholderStr='{{userDescription.placehouder}}'
+         >
+      </mycell>
+    <view class='lineStyTop'></view>
+  </view>
+
+  <view class='cellBackSty'>
+     <!-- 工作经历 -->
+       <view class='lineStyTop'></view>
+      <view wx:for="{{jobArr}}" wx:key="" bindtap='pushWorkList'>
+       <mycell title='{{item.title}}'
+              detail='{{item.detail}}'></mycell>
+       <view class='shortLineSty'></view>
+      </view>
+      <button class='andBtnSty' bindtap='pushWorkExperience'>+工作经验</button>
+  <view class='lineStyTop'></view>
+  </view>
+
+  <view class='cellBackSty'>
+    <!-- 教育经历 -->
+     <view class='lineStyTop'></view>
+      <view wx:for="{{diopArr}}" wx:key="{{index}}" id='{{index}}'>
+       <mycell title='{{item.title}}'
+              detail='{{item.detail}}'></mycell>
+       <view class='shortLineSty'></view>
+      </view>
+      <button class='andBtnSty' bindtap='pushWorkEducation'>+教育经历</button>
+  <view class='lineStyTop'></view>
+  </view>
+
+  <view class='cellBackSty'>
+    <!-- 预览简历 -->
+    <view class='lineStyTop'></view>
+    <mycell title='帮助与反馈'
+            detail='{{CVDescription.value}}'
+            placeholderStr='{{}}'
+         >
+     </mycell>
+  <view class='lineStyTop'></view>
+  </view>
+
+</view>

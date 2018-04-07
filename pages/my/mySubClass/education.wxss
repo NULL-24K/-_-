@@ -1,0 +1,26 @@
+/* pages/my/mySubClass/education.wxss */
+
+
+.backSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f7f7f7;
+  height: 100%;
+}
+
+.shortLineSty{
+  height: 1px;
+  margin-left: 10pt;
+  background-color: lightgray;
+  width: 95%;
+}
+
+.subBtnSty{
+  width: 70%;
+  background-color: red;
+  font-size: 15px;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

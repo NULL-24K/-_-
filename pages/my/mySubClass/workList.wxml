@@ -1,0 +1,10 @@
+<!--pages/my/mySubClass/workList.wxml-->
+<view class='backSty'>
+ <view wx:for="{{workListArr}}" class='cellSty' bindtap='pushWorkDetail' wx:key="" id='{{item.workID}}'>
+  <userInfoCell title="{{item.title}}"
+                detail="{{item.detail}}"
+                arrowImg="">
+  </userInfoCell>
+ </view>
+ <button class='btnSty' bindtap='pushWorkDetail'>继续添加教育经历</button>
+</view>

@@ -1,0 +1,8 @@
+<!--pages/message/message.wxml-->
+<scroll-view>
+  <defCell wx:for="{{itemArr}}" 
+            data-types='{{index}}' 
+            bindtap='conLog'
+            title='游戏主管'> 
+  </defCell>
+</scroll-view>

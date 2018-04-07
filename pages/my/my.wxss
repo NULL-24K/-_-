@@ -1,0 +1,62 @@
+/* pages/my/my.wxss */
+
+.backSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f7f7f7;
+  height: 100%;
+}
+
+.iconBackSty{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.iconSty{
+  width: 45pt;
+  height: 45pt;
+  margin-top: 10px;
+  border-radius: 22.5pt;
+  
+}
+.userInfoSty{
+  font-size: 12px;
+  color: lightslategray;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.cellBackSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  background-color: white;
+  /* height: 44pt; */
+}
+
+.lineStyTop{
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
+}
+
+.andBtnSty{
+  font-size: 14px;
+  color: red;
+  background-color: white;
+}
+.shortLineSty{
+  height: 1px;
+  margin-left: 10pt;
+  background-color: lightgray;
+  width: 95%;
+}
+
+button::after{
+  border:none;
+}

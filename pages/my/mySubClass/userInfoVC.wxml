@@ -1,0 +1,53 @@
+<!--pages/my/mySubClass/userInfoVC.wxml-->
+
+<view class='backSty'>
+  <view class='cellBackSty' >
+   <view wx:for="{{dataArr[0]}}" bindtap='itemSelect' wx:key="{{index}}" id="{{'1'+index}}">
+     <picker wx:if='{{index ===2}}' bindchange="bindPickerSex" range="{{sexArray}}">
+       <mycell  title='{{item.title}}'
+              detail='{{item.detail}}'
+              placeholderStr='{{item.placehoderStr}}'
+              detailIsImg='{{index===0?true:false}}'
+              isDisabled='{{index===1?false:true}}'
+              >
+     </mycell>
+     </picker>
+     <mycell wx:else  title='{{item.title}}'
+              detail='{{item.detail}}'
+              bindendInput='onEndInput'
+              placeholderStr='{{item.placehoderStr}}'
+              detailIsImg='{{index===0?true:false}}'
+              isDisabled='{{index===1?false:true}}'>
+     </mycell>
+     <view class='shortLineSty' wx:if="{{index!=(dataArr[0].length-1)}}"></view>
+   </view>
+     
+  </view>
+     
+  <view class='cellBackSty'>
+    <view wx:for="{{dataArr[1]}}"  wx:key="{{index}}" id="{{'2'+index}}">
+       <mycell  title='{{item.title}}'
+                bindendInput='onEndInput'
+                detail='{{item.detail}}'
+                placeholderStr='{{item.placehoderStr}}'
+                isDisabled='{{false}}'>
+     </mycell>
+     <view class='shortLineSty' wx:if="{{index!=(dataArr[1].length-1)}}"></view>
+    </view>
+  </view>
+     
+  <view class='cellBackSty'>
+      <view wx:for="{{dataArr[2]}}" bindtap='itemSelect' wx:key="{{index}}" id="{{'3'+index}}">
+        <picker mode="{{pickerModeArr[index]}}" value="1990-06-28" start="1980-01-01" end="2015-12-31" bindchange="bindPickerChange" range="{{index===1?diplomaArr:jobYearsArr}}" id='{{index}}'>
+          <mycell title='{{item.title}}'
+                detail='{{item.detail}}'
+                placeholderStr='{{item.placehoderStr}}
+                isDisabled='{{true}}'
+         >
+         </mycell>
+        </picker>
+        <view class='shortLineSty' wx:if="{{index!=(dataArr[2].length-1)}}"></view>
+      </view>
+  </view>
+  <button class='subBtnSty' bindtap='submitData'>完成</button>
+</view>

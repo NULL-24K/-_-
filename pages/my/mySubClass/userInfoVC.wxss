@@ -1,0 +1,36 @@
+/* pages/my/mySubClass/userInfoVC.wxss */
+
+.cellBackSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  /* height: 44pt; */
+}
+
+.backSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f7f7f7;
+  height: 100%t;
+}
+
+.shortLineSty{
+  height: 1px;
+  margin-left: 10pt;
+  background-color: lightgray;
+  width: 95%;
+}
+
+
+
+.subBtnSty{
+  width: 70%;
+  background-color: red;
+  font-size: 15px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

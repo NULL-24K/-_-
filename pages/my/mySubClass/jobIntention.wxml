@@ -1,0 +1,12 @@
+<!--pages/my/mySubClass/jobIntention.wxml-->
+<view class='backSty'>
+    <picker wx:for="{{styData}}" mode="{{item.pickMode}}" bindchange="bindPicker" range="{{item.pickValueArr}}" wx:key='{{index}}' id="{{index}}">
+       <userInfoCell  title='{{item.title}}'
+                      detail='{{valueArr[index]}}'
+                      placeholderStr='{{item.placehoderStr}}'
+              >
+       </userInfoCell>
+       <view class='shortLineSty' wx:if="{{index!=(styData.length-1)}}"></view>
+    </picker>
+    <button class='subBtnSty' bindtap='submitData'>保存</button>
+</view>

@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <button bindtap='onClickBtn' class="{{isSelectedBtn?'btnSty':'btnSelSty'}}" >{{btnStr}}</button>
+    <button bindtap='pushMain' >点击跳转至首页</button>
+  </view>
+</view> -->
+
+<scroll-view>
+  <defCell wx:for="{{itemArr}}" 
+            data-types='{{index}}' 
+            imagesrc='{{item.image}}'
+            bindtap='pushLogin'
+            title='{{item.title}}'
+            detailTitle='{{item.detailText}}'
+            location='{{item.location}}'
+            diploma='{{item.xueli}}'
+            years='{{item.yaoqiu}}'
+            salary='{{item.money}}'
+            time='{{item.timestr}}'> 
+  </defCell>
+</scroll-view>
