@@ -1,0 +1,12 @@
+<!--pages/components/defCell/interviewCell.wxml-->
+<view>
+  <view class=''>
+   <text class=''></text>
+   <text class=''></text>
+  </view>
+
+  <view>
+   <text class=''></text>
+   <text class=''></text>
+  </view>
+</view>

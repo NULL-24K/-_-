@@ -1,7 +1,7 @@
 {
-  "navigationBarTitleText": "消息",
+  "navigationBarTitleText": "求职进展",
   "navigationBarBackgroundColor": "#eb12d4",
   "usingComponents":{
-    "defCell":"../components/defCell/defcell"
+    "interview":"../../pages/components/defCell/interviewCell"
   }
 }
