@@ -2,6 +2,6 @@
   "navigationBarTitleText": "求职进展",
   "navigationBarBackgroundColor": "#eb12d4",
   "usingComponents":{
-    "interview":"../../pages/components/defCell/interviewCell"
+    "xxx":"../../pages/components/defCell/interviewCell"
   }
 }

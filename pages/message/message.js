@@ -1,9 +1,6 @@
 // pages/message/message.js
 var util = require('../../utils/util.js')
 
-
-
-
 Page({
 
   /**
@@ -12,17 +9,6 @@ Page({
   data: {
     itemArr:[],
   },
-
-  // conLog:(index)=>{
-
-  //   util.userLogin();
-  //   return
-
-  //   var name = index.currentTarget.dataset.types;
-  //   wx.navigateTo({
-  //     url: '../main/main?titles='+name,
-  //   })
-  // },
 
   /**
    * 生命周期函数--监听页面加载

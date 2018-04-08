@@ -16,7 +16,7 @@ Page({
     util.userLogin();
     return
 
-    var name = index.currentTarget.dataset.types;
+    var name = '';//index.currentTarget.dataset.types;
     wx.navigateTo({
       url: '../main/main?titles=' + name,
     })

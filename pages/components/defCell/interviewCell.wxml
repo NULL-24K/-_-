@@ -1,7 +1,7 @@
 <!--pages/components/defCell/interviewCell.wxml-->
 <view>
   <view class=''>
-   <text class=''></text>
+   <text class=''>{{interTypeStr}}</text>
    <text class=''></text>
   </view>
 
