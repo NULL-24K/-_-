@@ -1,4 +1,7 @@
 // pages/my/my.js
+
+var util = require('../../utils/util.js')
+
 Page({
 
   /**
@@ -14,12 +17,13 @@ Page({
    dioDescription: { placehouder: '描述您的教育和学历', value: '' },
    CVDescription: { placehouder: '您还未创建简历', value: '' },
    icon:'/pages/images/other/account_icon_user.png',
-   userInfo:{name:'NULL',
-             sex:'男',
-             diop:'本科',
-             jobYears:'4~5年' },
+   userInfo:{name:'',
+             sex:'',
+             diop:'',
+             jobYears:'' },
    jobArr: [{ title: '工作一', detail: '描述' }, { title: '工作一', detail: '描述' }],
-   diopArr: [{ title: '工作一', detail: '描述' }]
+   diopArr: [{ title: '工作一', detail: '描述' }],
+   isLogin:''
   },
 
   /**
@@ -41,6 +45,13 @@ Page({
    */
   onShow: function () {
     var that = this;
+
+   that.setData({
+     isLogin: wx.getStorageSync('isLoginKey')
+   })
+   
+   
+
   //.获取缓存数据
   wx.getStorage({
     key: 'jobIntention',
@@ -73,7 +84,17 @@ Page({
       },
     })
  
-    wx.startPullDownRefresh();
+  wx.showLoading({
+    title: '加载中',
+  });
+  wx.stopPullDownRefresh();
+
+  //.这里添加获取参数的代码
+  setTimeout(
+    () => {
+      wx.hideLoading();
+    }, 500
+  )
   },
 
   /**
@@ -110,34 +131,60 @@ Page({
   },
 
 
+
   //自定义函数
-  pushUserInfo:()=>{
-    wx.navigateTo({
-      url: './mySubClass/userInfoVC',
-    })
+  pushUserInfo:function(){
+   
+    if (!this.data.isLogin){
+      util.userLogin();
+    }else{
+      wx.navigateTo({
+        url: './mySubClass/userInfoVC',
+      })
+    } 
   },
 
-  pushJobIntentionVC:()=>{
-    wx.navigateTo({
-      url: './mySubClass/jobIntention',
-    })
+  pushJobIntentionVC: function (){
+    if (!this.data.isLogin) {
+      util.userLogin();
+    } else {
+      wx.navigateTo({
+        url: './mySubClass/jobIntention',
+      })
+    } 
+    
   },
 
-  pushWorkExperience:()=>{
-    wx.navigateTo({
-      url: './mySubClass/workExperience',
-    })
+  pushWorkExperience: function (){
+    if (!this.data.isLogin) {
+      util.userLogin();
+    } else {
+      wx.navigateTo({
+        url: './mySubClass/workExperience',
+      })
+    } 
+    
   },
-  pushWorkEducation:()=>{
-    wx.navigateTo({
-      url: './mySubClass/education',
-    })
+  pushWorkEducation: function (){
+    if (!this.data.isLogin) {
+      util.userLogin();
+    } else {
+      wx.navigateTo({
+        url: './mySubClass/education',
+      })
+    } 
+    
   },
   /*工作经历列表*/
-  pushWorkList:()=>{
-    wx.navigateTo({
-      url: './mySubClass/workList',
-    })
+  pushWorkList: function (){
+    if (!this.data.isLogin) {
+      util.userLogin();
+    } else {
+      wx.navigateTo({
+        url: './mySubClass/workList',
+      })
+    } 
+    
   },
 
   /**

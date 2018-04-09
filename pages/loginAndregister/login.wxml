@@ -7,18 +7,20 @@
          placeholder-class='inptuPlaceSty' 
           maxlength='11'
           type='number'
-          class='inptuSty'
+          class='inputSty'
+          bindblur='endInput'
             ></input>
   </view>
-  <!-- <view class='linesty'></view> -->
+   <view class='linesty'></view> 
   <view class='inputBackSty'>
    <image class='inputImgSty' src='{{psdImg}}'></image> 
-   <input placeholder='请输入密码' 
+   <input placeholder='请输入密码(6~20位)' 
           placeholder-class='inptuPlaceSty' 
-          password='true' 
-          class='inptuSty'></input>
+          password='true'
+          bindblur='endInputPsd' 
+          class='inputSty'></input>
   </view>
-  <button class='loginBtnSty'>登录</button>
+  <button class='loginBtnSty' bindtap='logintap'>登录</button>
   <view class='otherBtnBackSty'>
     <text class='otherBtnSty'>立即注册</text>
     <text class='otherBtnSty'>忘记密码</text>

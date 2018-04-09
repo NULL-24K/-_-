@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "进展详情",
+  "usingComponents": {
+    "mycell": "../../components/defCell/userInfoCell"
+  }
+}

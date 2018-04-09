@@ -1,12 +1,11 @@
 <!--pages/components/defCell/interviewCell.wxml-->
-<view>
-  <view class=''>
-   <text class=''>{{interTypeStr}}</text>
-   <text class=''></text>
+<view class='backSty'>
+  <view class='textBackSty'>
+   <text class='titleSty'>{{title}}</text>
+   <text class='interTypeSty'>{{interTypeStr}}</text>
   </view>
-
-  <view>
-   <text class=''></text>
-   <text class=''></text>
+  <view class='textBackSty'>
+   <text class='companyNameSty'>{{companyName}}</text>
+   <text class='timeSty'>{{timeStr}}</text>
   </view>
 </view>

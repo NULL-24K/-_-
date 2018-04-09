@@ -1,13 +1,18 @@
 // pages/loginAndregister/login.js
+
+var util = require('../../utils/util.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    iconImg:'/pages/images/other/home_game_icon@2x.png',
+    iconImg:'/pages/images/other/icon.jpeg',
     numberImg:'/pages/images/other/signin_account_press@2x.png',
-    psdImg:'/pages/images/other/signin_password_press@2x.png'
+    psdImg:'/pages/images/other/signin_password_press@2x.png',
+    phoneNum:'',
+    psd:''
   },
 
   /**
@@ -59,10 +64,51 @@ Page({
   
   },
 
+  endInput:function(e){
+    this.setData({
+      phoneNum:e.detail.value
+    })
+  },
+
+  endInputPsd:function(e){
+    this.setData({
+      psd: e.detail.value
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
   
+  },
+
+  logintap:function(){
+    var alertStr = '';
+
+    if(this.data.phoneNum.length == 0){
+      alertStr = '账号不能为空'
+    } else if (this.data.psd.length == 0){
+      alertStr = '密码不能为空'
+    }else if (!util.formatIsTrue(3, this.data.phoneNum)){
+      alertStr='手机号码格式不正确';
+    }else if(this.data.psd.length < 6){
+      alertStr='密码不能小于6位'
+    }else if(this.data.psd.length > 20){
+      alertStr='密码不能大于20位'
+    }
+
+    if(alertStr.length >0){
+      wx.showToast({
+        title: alertStr,
+        icon:'none'
+      })
+      return;
+    }
+    wx.setStorageSync('isLoginKey',true)
+    wx.navigateBack({
+      
+    })
   }
+
 })

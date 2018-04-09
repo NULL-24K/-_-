@@ -1,0 +1,9 @@
+<!--pages/message/messageSubClass/interDetail.wxml-->
+<view class='backSty'>
+ <mycell title="{{titleStr}}" detail="{{detailStr}}" bindtap="pushCompany"></mycell>
+ <view wx:for="{{dataArr}}" class='cellSty'>
+  <text class='timeSty'>{{item.timeStr}}</text>
+  <view class='colSty'></view>
+  <text class='stateSty'>{{item.stateStr}}</text>
+ </view>
+</view>

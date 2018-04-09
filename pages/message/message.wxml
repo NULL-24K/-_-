@@ -1,6 +1,16 @@
 <!--pages/message/message.wxml-->
 
-<scroll-view>
-  <interview> 
-  </interview>
-</scroll-view>
+<view class='backSty'>
+ <interviewCell wx:for="{{itemArr}}" 
+                title="{{item.jobName}}"
+                interTypeStr="{{item.interType}}"
+                companyName="{{item.companyName}}"
+                timeStr="{{item.timeStr}}"
+                class="cellBackSty"
+                wx:key=""
+                bindtap="pushDetail"
+                id = '{{index}}'>
+                </interviewCell>
+ <button class='btnSty' bindtap=''>查看申请记录>></button>
+</view>
+

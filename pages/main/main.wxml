@@ -1,4 +1,49 @@
 <!--pages/main/main.wxml-->
-<view>
-<label>{{textStr}}</label>
+<view class='backSty'>
+<!--描述  -->
+ <view class='cellBackSty'>
+  <text class='titleSty'>{{jobName}}</text>
+  <view class='incomViewBackSty'>
+   <text class='incomSty'>{{'¥' + jobIncom}}</text>
+   <text class='isZhaophSty'>招聘会</text>
+  </view>
+  <view class='yaoqiuSty'>
+   <text class='yaoqiuStyone'>{{singerLocation +'|' +dio + '|'+ jobYears}}</text>
+   <text class='yaoqiuStyTwo'>{{'该职位已有'+applyNum+'人申请'}}</text>
+  </view>
+  <view class='shortLineSty'></view>
+  <view class='wellSty'>
+   <text wx:for='{{wellArr}}' class='wellItemSty'>{{item}}</text>
+  </view>
+ </view>
+<!--时间地点  -->
+ <view class='cellBackSty'>
+  <view class='interViewTimeBackSty'>
+   <text class='otherTitleSty'>面试时间:</text>
+   <text class='otherDetailSty' style='color:#d9974a'>{{interviewTime}}</text>
+  </view>
+  <view class='shortLineSty'></view>
+  <view class='interViewTimeBackStymore'>
+   <text class='otherTitleSty'>面试地点:</text>
+   <text class='otherDetailSty'>{{interViewLocation}}</text>
+  </view>
+  <view class='shortLineSty'></view>
+  <view class='interViewTimeBackStymore'>
+   <text class='otherTitleSty'>工作地点:</text>
+   <text class='otherDetailSty'>{{jobLocation}}</text>
+  </view>
+ </view>
+<!--要求  -->
+ <view class='jobDescribeBackSty'>
+  <text class='jobDescribeTitleSty'>工作职责</text>
+  <text class='jobDescribeSty'>{{jobDescribe}}</text>
+ </view>
+
+ <view class='otherViewClass'>
+  <view class='shareSty'>
+   <image class='shareImgSty'></image>
+   <text class='shareTitleSty'>分享</text>
+  </view>
+  <view class="{{applyState == '已申请'?'applySty':'UapplySty'}}" bindtap='interview'>{{applyState}}</view>
+ </view>
 </view>

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "个人中心",
-  "navigationBarBackgroundColor": "#f66666",
+  "navigationBarBackgroundColor": "#d9974a",
   "usingComponents":{
     "mycell":"../components/defCell/userInfoCell"
   },

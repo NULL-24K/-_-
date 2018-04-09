@@ -1,1 +1,184 @@
 /* pages/main/main.wxss */
+
+.backSty{
+  display: flex;
+  background-color: #f7f7f7;
+  flex-direction: column;
+}
+
+.cellBackSty{
+  margin-bottom: 10pt;
+  flex-direction: column;
+  background-color: white;
+}
+
+.titleSty{
+  margin-left: 15pt;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.incomViewBackSty{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40pt;
+  align-items: center;
+}
+
+.incomSty{
+  margin-left: 15pt;
+  font-size: 16px;
+  color: red;
+}
+
+.isZhaophSty{
+  margin-right: 15pt;
+  border: solid 1px red;
+  color: red;
+  font-size: 14px;
+}
+
+.yaoqiuSty{
+  display: flex;
+  flex-direction: column;
+  height: 44pt;
+  /* margin-bottom: 10pt; */
+}
+
+.yaoqiuStyone{
+  margin-left: 15pt;
+  font-size: 15px;
+  color: lightgray;
+}
+
+.yaoqiuStyTwo{
+   margin-left: 15pt;
+  font-size: 13px;
+  color: lightgray;
+}
+
+.wellSty{
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 6pt;
+  margin-bottom: 6pt;
+}
+
+.wellItemSty{
+  color: red;
+  margin:5px;
+  font-size: 15px;
+  border: solid 1px lightgray;
+  border-radius: 4px;
+  padding-left: 4pt;
+  padding-right: 4pt;
+}
+
+.interViewTimeBackSty{
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.interViewTimeBackStymore{
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.otherTitleSty{
+  margin-left: 15pt;
+  font-size: 15px;
+  color: lightgray;
+}
+
+.otherDetailSty{
+  display: flex;
+  font-size: 15px;
+  flex-wrap: wrap;
+  margin-left: 10px;
+  width: 60%;
+}
+
+.jobDescribeBackSty{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.jobDescribeTitleSty{
+  margin-left: 15pt;
+  color: #dbb867;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.jobDescribeSty{
+  font-size: 14px;
+  color: black;
+  margin-left: 15pt;
+  margin-right: 15pt;
+  margin-bottom: 50pt;
+}
+
+.otherViewClass{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  background-color: white;
+}
+
+.shareSty{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shareImgSty{
+  width: 20px;
+  height: 20px;
+}
+
+.shareTitleSty{
+  font-size: 13px;
+  color: lightgray;
+  text-align: center;
+}
+
+.applySty{
+  width: 80%;
+  font-size: 14px;
+  background: lightgray;
+  color: black;
+  text-align: center;
+  line-height: 50px;
+}
+
+.UapplySty{
+  width: 80%;
+  font-size: 14px;
+  background: red;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+
+.shortLineSty{
+  height: 1px;
+  margin-left: 10pt;
+  background-color: lightgray;
+  width: 95%;
+}

@@ -12,10 +12,6 @@ Component({
        type:String,
        value:''
      },
-     interType:{
-       type:String,
-       value:''
-     },
      companyName:{
        type:String,
        value:''
