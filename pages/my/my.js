@@ -49,16 +49,30 @@ Page({
     //.获取接口参数
     wx.request({
       url: 'http://localhost:3000/users/getUserInfo?id=1',
-      success:function(obj){
-        console.log(obj.data);
+      success:function(res){
+        var obj = res.data;
+        if(obj.code == 0){
+          var userDescription_ = 'userDescription.value';
+          var userDic = that.data.userInfo;
+          userDic.name = obj.data.name;
+          userDic.sex = obj.data.sex;
+          userDic.diop = obj.data.education;
+          userDic.jobYears = obj.data.workYears;
+          that.setData({
+            diopArr: obj.data.educationList,
+            jobArr: obj.data.workExperienceList,
+            [userDescription_]: obj.data.advantage,
+            userInfo:userDic
+          })
+        }else{
+
+        }
       }
     })
 
 
 
-   that.setData({
-     isLogin: wx.getStorageSync('isLoginKey')
-   })
+   
    
    
 
