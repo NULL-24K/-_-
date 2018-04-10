@@ -45,6 +45,16 @@ Page({
    */
   onShow: function () {
     var that = this;
+    
+    //.获取接口参数
+    wx.request({
+      url: 'http://localhost:3000/users/getUserInfo?id=1',
+      success:function(obj){
+        console.log(obj.data);
+      }
+    })
+
+
 
    that.setData({
      isLogin: wx.getStorageSync('isLoginKey')
