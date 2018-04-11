@@ -81,7 +81,7 @@ Page({
   },
 
   interview:function(){
-    if (!app.isLogin){
+    if (!app.isLogin()){
       util.userLogin();
     }else{
       wx.navigateBack({

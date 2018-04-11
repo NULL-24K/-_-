@@ -17,14 +17,14 @@
 <scroll-view>
   <defCell wx:for="{{itemArr}}" 
             data-types='{{index}}' 
-            imagesrc='{{item.image}}'
+            imagesrc='{{item.companyImgUrl}}'
             bindtap='pushLogin'
-            title='{{item.title}}'
-            detailTitle='{{item.detailText}}'
-            location='{{item.location}}'
-            diploma='{{item.xueli}}'
-            years='{{item.yaoqiu}}'
-            salary='{{item.money}}'
-            time='{{item.timestr}}'> 
+            title='{{item.companyName}}'
+            detailTitle='{{item.jobName}}'
+            location='{{item.workAddress}}'
+            diploma='{{item.minEducation}}'
+            years='{{item.workExperienc}}'
+            salary='{{item.salary}}'
+            time='{{item.time}}'> 
   </defCell>
 </scroll-view>

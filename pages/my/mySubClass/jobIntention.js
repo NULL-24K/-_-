@@ -1,4 +1,5 @@
 // pages/my/mySubClass/jobIntention.js
+var app = getApp();
 Page({
 
   /**
@@ -22,15 +23,41 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.getStorage({
-      key: 'jobIntention',
-      success: function(res) {
-        if (res.data.length == 5){
-          that.setData({
-            valueArr: res.data
+    wx.showLoading({
+      title: '正在加载',
+    })
+    wx.request({
+      url: app.baseUrl + 'users/jobIntention',
+      method:'POST',
+      header:app.header,
+      data:{type:0},
+      success:function(res){
+        if(res.statusCode == 200){
+          var obj = res.data;
+          if(obj.code == 0){
+            var newArr = [];
+            newArr.push(obj.data.intentionAddress);
+            newArr.push(obj.data.intentionIndustry);
+            newArr.push(obj.data.intentionPosition);
+            newArr.push(obj.data.intentionSalary);
+            newArr.push(obj.data.jobState);
+            that.setData({
+              valueArr:newArr
+            })
+          }else{
+            wx.showToast({
+              title: obj.msg,
+            })
+          }
+        }else{
+          wx.showToast({
+            title: '网络异常,请重试',
           })
         }
       },
+      complete:function(){
+        wx.hideLoading();
+      }
     })
   },
 

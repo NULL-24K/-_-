@@ -22,23 +22,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var arr = [];
-    for (var i = 0; i < 8; i++) {
-      var dataDic = {
-        title: (i%2==0)?'客服专员':'项目主管',
-        image: (i % 2 == 0) ? '/pages/images/my_sel.jpg' : '/pages/images/main_def.jpg',
-        detailText: (i % 2 == 0)?'交通银行催收':'科大讯飞项目负责人',
-        location: (i % 2 == 0) ?'明珠广场':'蜀山区',
-        money: (i % 2 == 0) ?'6k~8k':'20k~30k',
-        timestr: (i % 2 == 0) ?'03月24日':'02月08日',
-        xueli: (i % 2 == 0) ?'大专':'研究生',
-        yaoqiu: (i % 2 == 0) ?'不限':'5年以上'
-      }
-      arr.push(dataDic)
-    }
-    this.setData({
-      itemArr: arr,
+    wx.showLoading({
+      title: '正在加载',
     })
+    var that = this;
+    wx.request({
+      url: app.baseUrl + 'jobs/jobList',
+      method:'POST',
+      data:{type:0},
+      success:function(res){
+        if(res.statusCode == 200){
+          var obj = res.data;
+          if(obj.code == 0){
+            that.setData({
+              itemArr:obj.data
+            })
+          }else{}
+        }else{
+          wx.showToast({
+            title: '网络异常,请重试',
+          })
+        }
+      },
+      complete:function(){
+        wx.hideLoading();
+      }
+    })
+    
   },
 
   /**

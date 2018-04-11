@@ -60,11 +60,12 @@ App({
       data:obj,
       method:'POST',
       success:function(res){
-        console.log(res);
+       // console.log(res);
         if(res.statusCode == 200){//请求成功
           var  obj = res.data;
           if(obj.code == 0){//登录成功
             wx.setStorageSync("AccountToken", obj.data.token);
+            that.header.token = obj.data.token;
             wx.showToast({
               title: obj.msg,
             })

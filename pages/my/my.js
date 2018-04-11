@@ -119,7 +119,7 @@ Page({
   //自定义函数
   pushUserInfo:function(){
    
-    if (!app.isLogin){
+    if (!app.isLogin()){
       util.userLogin();
     }else{
       wx.navigateTo({
@@ -129,7 +129,7 @@ Page({
   },
 
   pushJobIntentionVC: function (){
-    if (!app.isLogin) {
+    if (!app.isLogin()) {
       util.userLogin();
     } else {
       wx.navigateTo({
@@ -140,7 +140,7 @@ Page({
   },
 
   pushWorkExperience: function (){
-    if (!app.isLogin) {
+    if (!app.isLogin()) {
       util.userLogin();
     } else {
       wx.navigateTo({
@@ -150,7 +150,7 @@ Page({
     
   },
   pushWorkEducation: function (){
-    if (!app.isLogin) {
+    if (!app.isLogin()) {
       util.userLogin();
     } else {
       wx.navigateTo({
@@ -161,7 +161,7 @@ Page({
   },
   /*工作经历列表*/
   pushWorkList: function (){
-    if (!app.isLogin) {
+    if (!app.isLogin()) {
       util.userLogin();
     } else {
       wx.navigateTo({
