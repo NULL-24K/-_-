@@ -1,6 +1,8 @@
 // pages/main/main.js
 
  var util = require('../../utils/util.js')
+ var app = getApp();
+
 
 Page({
 
@@ -79,7 +81,7 @@ Page({
   },
 
   interview:function(){
-    if (!wx.getStorageSync('isLoginKey')){
+    if (!app.isLogin){
       util.userLogin();
     }else{
       wx.navigateBack({

@@ -1,7 +1,7 @@
 // pages/my/mySubClass/userInfoVC.js
 
 var util = require('../../../utils/util.js')
-
+var app = getApp();
 Page({
 
   /**
@@ -31,15 +31,32 @@ Page({
    */
   onLoad: function (options) {
    var that = this;
-   wx.getStorage({
-     key: 'userInfo_key',
-     success: function(res) {
-       if(res.data.length == 3){
-         that.setData({
-           dataArr: res.data
-         })
+   wx.request({
+     url: app.baseUrl + 'users/persionInfo',
+     method:'POST',
+     data:{type:0},
+     header:app.header,
+     success:function(res){
+       if(res.statusCode == 200){
+         var obj = res.data;
+         
+         if(obj.code == 0){
+           var newData = that.data.dataArr;
+           for (var i = 0; i < newData.length; i++) {
+             for(var j = 0; j < newData[i].length; j++){
+               newData[i][j].detail = obj.data[i][j];
+             }
+           }
+           that.setData({
+             dataArr:newData
+           })
+         }else{
+
+         }
+       }else{
+
        }
-     },
+     }
    })
   },
 
@@ -204,6 +221,17 @@ Page({
       })
       return;
     }
+
+    //.提交信息
+   wx.request({
+     url: app.baseUrl +'users/persionInfo',
+     method:'POST',
+     data:{},
+     header:app.header,
+     success:function(res){
+
+     }
+   })
     
     wx.setStorage({
       key: 'userInfo_key',

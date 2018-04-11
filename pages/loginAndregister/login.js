@@ -1,7 +1,7 @@
 // pages/loginAndregister/login.js
 
 var util = require('../../utils/util.js')
-
+var app = getApp();
 Page({
 
   /**
@@ -105,10 +105,19 @@ Page({
       })
       return;
     }
-    wx.setStorageSync('isLoginKey',true)
-    wx.navigateBack({
-      
+    
+    app.userLogin({ phoneNum: this.data.phoneNum,psd:this.data.psd},function(code){
+      if(code){
+        setTimeout(
+          function(){
+            wx.navigateBack({
+              
+            })
+          },1500
+        )
+      }
     })
+    
   }
 
 })
