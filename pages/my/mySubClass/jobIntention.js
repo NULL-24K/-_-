@@ -13,7 +13,6 @@ Page({
       { title: '期望薪资', pickMode: 'selector', placehoderStr: '请选择期望薪资', pickValueArr: ['1000~3000', '3001~5000', '5001~8000', '8000~12000', '12000~20000', '20000以上'] },
       { title: '求职状态', pickMode: 'selector', placehoderStr: '选择您当前求职状态', pickValueArr: ['正在找工作-随时到岗', '在职-正在考虑换工作', '在职-考虑更好的工作机会', '在职-暂无跳槽意向'] }
     ],
-
     valueArr:['','','','','']
   
   },
@@ -134,21 +133,46 @@ Page({
       })
       return;
     }
-    wx.setStorage({
-      key: 'jobIntention',
-      data: that.data.valueArr,
-      success:function(){
-        wx.showToast({
-          title: '提交成功',
-        })
-        setTimeout(
-          ()=>{
-            wx.navigateBack({
-              
+
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.baseUrl + 'users/jobIntention',
+      method:'POST',
+      header:app.header,
+      data:{},
+      success:function(res){
+        if(res.statusCode == 200){
+          if(res.data.code == 0){
+            wx.showToast({
+              title: '提交成功',
             })
-          },1500
-        )
+            setTimeout(
+              ()=>{
+                wx.navigateBack({
+                  
+                })
+              },1500
+            )
+          }else{
+            wx.showToast({
+              title: res.data.msg,
+              icon:'none'
+            })
+          }
+        }else{
+          wx.showToast({
+            title: app.errorMsg,
+            icon:'none'
+          })
+        }
+      },
+      complete:function(){
+        wx.hideLoading();
       }
     })
+    
+
   },
 })

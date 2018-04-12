@@ -18,13 +18,14 @@
   <defCell wx:for="{{itemArr}}" 
             data-types='{{index}}' 
             imagesrc='{{item.companyImgUrl}}'
-            bindtap='pushLogin'
+            bindtap='pushDetailVC'
             title='{{item.companyName}}'
             detailTitle='{{item.jobName}}'
             location='{{item.workAddress}}'
             diploma='{{item.minEducation}}'
             years='{{item.workExperienc}}'
             salary='{{item.salary}}'
-            time='{{item.time}}'> 
+            time='{{item.time}}'
+            id="{{item.ID}}"> 
   </defCell>
 </scroll-view>

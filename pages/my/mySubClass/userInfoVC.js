@@ -223,34 +223,64 @@ Page({
     }
 
     //.提交信息
+    
+    //.首先上传图片
+    
+    var params = {
+      iconUrl : 'http://pic29.photophoto.cn/20131204/0034034499213463_b.jpg',
+      nickName : '独孤求败',
+      sex : '男',
+      phoneNum : '130****908',
+      emaill : '11******17@qq.com',
+      birthday : '1990-06-28',
+      education : '本科',
+      endEducationTime : '2014-07-01',
+      workYears : '5年以上',
+      address : '上海市-浦东新区-张江',
+    }
+
+    wx.showLoading({
+      title: '加载中',
+    })
    wx.request({
      url: app.baseUrl +'users/persionInfo',
      method:'POST',
-     data:{},
+     data: params,
      header:app.header,
      success:function(res){
-
+       if(res.statusCode == 200){
+         if(res.data.code == 0){
+           wx.showToast({
+             title: '提交成功',
+           })
+           setTimeout(
+             ()=>{
+               wx.navigateBack({
+                 
+               })
+             },1500
+           )
+         }else{
+           wx.showToast({
+             title: res.data.msg,
+             icon:'none'
+           })
+         }
+       }else{
+         wx.showToast({
+           title: app.errorMsg,
+           icon:'none'
+         })
+       }
+     },
+     complete:function(){
+       wx.hideLoading()
      }
    })
-    
-    wx.setStorage({
-      key: 'userInfo_key',
-      data: that.data.dataArr,
-      success:function(){
-        wx.showToast({
-          title: '提交成功',
-        })
-        setTimeout(
-          ()=>{
-            wx.navigateBack({
-
-            })
-          },1500
-        )
-        
-      }
-    })
+  
   }
+
+
 
 })
 

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "defCell": "../components/defCell/defcell"
-  }
+  },
+  "enablePullDownRefresh": true
 }

@@ -38,7 +38,7 @@ App({
   },
 
   baseUrl:'http://localhost:3000/',
-
+  errorMsg:'网络异常,请重试',
   header:{token:wx.getStorageSync('AccountToken')},
   /*用户是否登录*/
   isLogin:function(){

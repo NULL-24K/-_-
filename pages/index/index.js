@@ -11,10 +11,10 @@ Page({
     itemArr: [],
   },
 
-  pushLogin: (index) => {
-    var name = '';//index.currentTarget.dataset.types;
+  pushDetailVC: (index) => {
+    var jobID = index.currentTarget.id;
     wx.navigateTo({
-      url: '../main/main?titles=' + name,
+      url: '../main/main?jobID=' + jobID,
     })
   },
 
@@ -22,33 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '正在加载',
-    })
-    var that = this;
-    wx.request({
-      url: app.baseUrl + 'jobs/jobList',
-      method:'POST',
-      data:{type:0},
-      success:function(res){
-        if(res.statusCode == 200){
-          var obj = res.data;
-          if(obj.code == 0){
-            that.setData({
-              itemArr:obj.data
-            })
-          }else{}
-        }else{
-          wx.showToast({
-            title: '网络异常,请重试',
-          })
-        }
-      },
-      complete:function(){
-        wx.hideLoading();
-      }
-    })
-    
+    this.getNetData();
   },
 
   /**
@@ -83,7 +57,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getNetData();
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -98,6 +73,35 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getNetData:function(){
+    wx.showLoading({
+      title: '正在加载',
+    })
+    var that = this;
+    wx.request({
+      url: app.baseUrl + 'jobs/jobList',
+      method: 'POST',
+      data: { type: 0 },
+      success: function (res) {
+        if (res.statusCode == 200) {
+          var obj = res.data;
+          if (obj.code == 0) {
+            that.setData({
+              itemArr: obj.data
+            })
+          } else { }
+        } else {
+          wx.showToast({
+            title: '网络异常,请重试',
+          })
+        }
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   }
 })
 

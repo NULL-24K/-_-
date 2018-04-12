@@ -8,12 +8,12 @@
    <text class='isZhaophSty'>招聘会</text>
   </view>
   <view class='yaoqiuSty'>
-   <text class='yaoqiuStyone'>{{singerLocation +'|' +dio + '|'+ jobYears}}</text>
+   <text class='yaoqiuStyone'>{{singerLocation +'|' +minEducation + '|'+ workExperienc}}</text>
    <text class='yaoqiuStyTwo'>{{'该职位已有'+applyNum+'人申请'}}</text>
   </view>
   <view class='shortLineSty'></view>
   <view class='wellSty'>
-   <text wx:for='{{wellArr}}' class='wellItemSty'>{{item}}</text>
+   <text wx:for='{{wellArr}}' class='wellItemSty' wx:key="">{{item}}</text>
   </view>
  </view>
 <!--时间地点  -->

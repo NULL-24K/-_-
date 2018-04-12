@@ -10,25 +10,70 @@ Page({
    * 页面的初始数据
    */
   data: {
-    jobName:'顺丰纯接听客服',
-    jobIncom:'3000-8000',
-    singerLocation:'滨湖',
-    dio:'本科',
-    jobYears:'3年以上',
-    applyNum:'8',
-    wellArr:['五险一金','下午茶','定期体检','加班双薪','季度旅游','美女如云'],
-    interviewTime:'4月20日 上午',
-    interViewLocation:'合肥市蜀山区莲花路莲花电子产业园D栋503',
-    jobLocation:'合肥市蜀山区莲花路莲花电子产业园D栋503',
-    jobDescribe: '关注“失控奔驰车”事件的最新进展。上周，央视新闻频道《法治在线》栏目连续两天播出了针对这一事件调查，4月8日晚上，栏目组收到了奔驰公司专门给法治在线发来的一封情况说明。在这份情况说明当中，奔驰方面首次公布了对车辆情况的初步分析结果，初步判断车辆的定速巡航系统及驾驶系统当晚运行正常，并表示正在与薛先生沟通下一步的车辆检测工作。同时，车主薛先生也表示，希望可以尽快检测车辆，回归正常生活。这份《关于薛先生用车经历的进一步情况说明》提到，目前已有的相关车辆的技术信息，包括当晚从车辆中远程获取的信息，显示相关系统在事发当晚运行正常，包括大家关注的定速巡航及制动系统等。',
-    applyState:'立即申请'
+    jobName:'',
+    jobIncom:'',
+    singerLocation:'',
+    dio:'',
+    jobYears:'',
+    applyNum:'',
+    wellArr:[],
+    interviewTime:'',
+    interViewLocation:'',
+    jobLocation:'',
+    jobDescribe: '',
+    applyState:'立即申请',
+    jobid:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var id = options.jobID;
+     var that = this;
+     wx.showLoading({
+       title: '加载中...',
+     })
+     wx.request({
+       url: app.baseUrl +'jobs/jobDetail',
+       method:'POST',
+       data: { jobID: id},
+       header:app.header,
+       success:function(res){
+         if(res.statusCode == 200){
+           var obj = res.data;
+           if(obj.code == 0){
+             that.setData({
+               jobName: obj.data.jobName,
+               jobIncom: obj.data.jobIncom,
+               singerLocation: obj.data.singerLocation,
+               minEducation: obj.data.minEducation,
+               workExperienc: obj.data.workExperienc,
+               applyNum: obj.data.applyNum,
+               wellArr: obj.data.wellArr,
+               interviewTime: obj.data.interviewTime,
+               interViewLocation: obj.data.interViewLocation,
+               jobLocation: obj.data.jobLocation,
+               jobDescribe: obj.data.jobDescribe,
+               applyState: obj.data.applyState,
+             })
+           }else{
+             wx.showToast({
+               title: obj.msg,
+               icon:'error'
+             })
+           }
+         }else{
+           wx.showToast({
+             title: '网络异常,请重试',
+             icon:'error'
+           })
+         }
+       },
+       complete:function(){
+         wx.hideLoading();
+       }
+     })
   },
 
   /**
@@ -81,12 +126,52 @@ Page({
   },
 
   interview:function(){
+    var that = this;
     if (!app.isLogin()){
       util.userLogin();
     }else{
-      wx.navigateBack({
-        
-      })
+      if (that.data.applyState == '已申请'){
+        wx.showToast({
+          title: '您已申请该职位,去消息中心查看简历处理情况吧',
+          icon:'none'
+        })
+      }else{
+        wx.request({
+          url: app.baseUrl +'apply/applyJob',
+          method:'POST',
+          header:app.header,
+          data: { jobId: that.data.jobid},
+          success:function(res){
+            if(res.statusCode == 200){
+              var obj = res.data;
+              if(obj.code == 0){
+                wx.showToast({
+                  title: '申请成功,你可以在消息中心查看进度',
+                  icon:'none'
+                })
+                setTimeout(
+                  ()=>{
+                    wx.navigateBack({
+                      
+                    })
+                  },2000
+                )
+              }else{
+                wx.showToast({
+                  title: obj.msg,
+                })
+              }
+            }else{
+              wx.showToast({
+                title: '网络异常,请重试',
+              })
+            }
+          },
+          complete:function(){
+            wx.hideLoading();
+          }
+        })
+      }
     }
   }
 })
