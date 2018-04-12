@@ -1,4 +1,5 @@
 // pages/my/mySubClass/workList.js
+var app = getApp();
 Page({
 
   /**
@@ -26,7 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getNetData();
   },
 
   /**
@@ -62,6 +63,41 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  getNetData:function(){
+    var that = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.baseUrl + 'users/workList',
+      method: 'POST',
+      header: app.header,
+      success: function (res) {
+        if (res.statusCode == 200) {
+          var obj = res.data;
+          if (obj.code == 0) {
+            that.setData({
+              workListArr: obj.data
+            })
+          } else {
+            wx.showToast({
+              title: obj.msg,
+              icon: 'none'
+            })
+          }
+        } else {
+          wx.showToast({
+            title: app.errorMsg,
+            icon: 'none'
+          })
+        }
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
 
   pushWorkDetail:function(e){

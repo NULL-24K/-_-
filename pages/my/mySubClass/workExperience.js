@@ -1,4 +1,5 @@
 // pages/my/mySubClass/workExperience.js
+var app = getApp();
 Page({
 
   /**
@@ -41,16 +42,64 @@ Page({
       styData:newData
     })
 
-    wx.getStorage({
-      key: 'workExperience',
-      success: function(res) {
-        if(res.data.arr.length > 0){
-          that.setData({
-            valueArr:res.data.arr,
-            inputValue: res.data.detail
+    if(options.id.length > 0){//获取工作信息
+    this.getNetData({type:0,workExperienceId:options.id});
+    }
+  },
+
+  getNetData:function(params){
+    var that = this;
+    wx.showLoading({
+      title: '加载中...',
+      icon:'none'
+    })
+    wx.request({
+      url: app.baseUrl + 'users/workExperience',
+      method:'POST',
+      header:app.header,
+      data:params,
+      success:function(res){
+        if(res.statusCode == 200){
+          var obj = res.data;
+          if(obj.code == 0){
+            if(params.type == 0){
+              var listArr = [obj.data.companyName,
+                            obj.data.jobName,
+                            obj.data.startTime,
+                             obj.data.endTime];
+              that.setData({
+                valueArr:listArr,
+                inputValue: obj.data.jobDescribe,
+                inputTextNum: obj.data.jobDescribe.length
+              })
+            }else{
+              wx.showToast({
+                title: '提交成功',
+              })
+              setTimeout(
+                ()=>{
+                  wx.navigateBack({
+                    
+                  })
+                },1500
+              )
+            }
+          }else{
+            wx.showToast({
+              title: obj.msg,
+              icon:'none'
+            })
+          }
+        }else{
+          wx.showToast({
+            title: app.errorMsg,
+            icon:'none'
           })
         }
       },
+      complete:function(){
+        wx.hideLoading();
+      }
     })
   },
 

@@ -19,8 +19,8 @@ Page({
              sex:'',
              diop:'',
              jobYears:'' },
-   jobArr: [{ title: '工作一', detail: '描述' }, { title: '工作一', detail: '描述' }],
-   diopArr: [{ title: '工作一', detail: '描述' }],
+   jobArr: [],
+   diopArr: [],
   },
 
   /**
@@ -45,42 +45,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    wx.showLoading({
-      title: '加载中',
-    });
-    //.获取接口参数
-    wx.request({
-      url: app.baseUrl+'users/getUserInfo',
-      method:'GET',
-      header: app.header,
-      success:function(res){
-        var obj = res.data;
-        if(obj.code == 0){
-          var userDescription_ = 'userDescription.value';
-          var userDic = that.data.userInfo;
-          userDic.name = obj.data.name;
-          userDic.sex = obj.data.sex;
-          userDic.diop = obj.data.education;
-          userDic.jobYears = obj.data.workYears;
-          that.setData({
-            diopArr: obj.data.educationList,
-            jobArr: obj.data.workExperienceList,
-            [userDescription_]: obj.data.advantage,
-            userInfo:userDic,
-            icon: obj.data.iconUrl
-          })
-        }else{
-          wx.showToast({
-            title: obj.msg,
-            icon:'none'
-          })
-        }
-      },
-      complete:function(){
-        wx.hideLoading();
-      }
-    })
+    this.getNetData();
   },
 
   /**
@@ -101,19 +66,49 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.getNetData();
+    wx.stopPullDownRefresh();
+  },
+  
+
+  getNetData:function(){
+    var that = this;
     wx.showLoading({
       title: '加载中',
     });
-   wx.stopPullDownRefresh();
-
-   //.这里添加获取参数的代码
-   setTimeout(
-     ()=>{
-       wx.hideLoading();
-     },500
-   )
+    //.获取接口参数
+    wx.request({
+      url: app.baseUrl + 'users/getUserInfo',
+      method: 'GET',
+      header: app.header,
+      success: function (res) {
+        var obj = res.data;
+        if (obj.code == 0) {
+          var userDescription_ = 'userDescription.value';
+          var userDic = that.data.userInfo;
+          userDic.name = obj.data.name;
+          userDic.sex = obj.data.sex;
+          userDic.diop = obj.data.education;
+          userDic.jobYears = obj.data.workYears;
+          that.setData({
+            diopArr: obj.data.educationList,
+            jobArr: obj.data.workExperienceList,
+            [userDescription_]: obj.data.advantage,
+            userInfo: userDic,
+            icon: obj.data.iconUrl
+          })
+        } else {
+          wx.showToast({
+            title: obj.msg,
+            icon: 'none'
+          })
+        }
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
-
 
 
   //自定义函数
@@ -161,6 +156,7 @@ Page({
   },
   /*工作经历列表*/
   pushWorkList: function (){
+    var that = this;
     if (!app.isLogin()) {
       util.userLogin();
     } else {
