@@ -33,7 +33,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id);
     var that = this;
     var newData = this.data.styData;
     newData[2].pickDataArr = this.startDataArr();
@@ -41,8 +40,7 @@ Page({
     this.setData({
       styData:newData
     })
-
-    if(options.id.length > 0){//获取工作信息
+    if(options.id && options.id.length > 0){//获取工作信息
     this.getNetData({type:0,workExperienceId:options.id});
     }
   },
@@ -192,6 +190,7 @@ Page({
   },
 
   submitData:function(){
+    var that = this;
     var alertStr = '';
     var stratTime = this.data.valueArr[2];
     var endTime = this.data.valueArr[3];
@@ -223,25 +222,12 @@ Page({
 
     //.提交
     var data_ = {
-      arr: this.data.valueArr,
-      detail: this.data.inputValue
+      companyName: that.data.valueArr[0],
+      jobName: that.data.valueArr[1],
+      startTime: that.data.valueArr[2],
+      endTime: that.data.valueArr[3],
+      jobDescribe: that.data.inputValue
     }
-
-    wx.setStorage({
-      key: 'workExperience',
-      data: data_,
-      success:function(){
-        wx.showToast({
-          title: '提交成功',
-        })
-        setTimeout(
-          ()=>{
-            wx.navigateBack({
-              
-            })
-          },1000
-        )
-      }
-    })
+    that.getNetData(data_);
   },
 })

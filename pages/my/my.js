@@ -144,12 +144,13 @@ Page({
     } 
     
   },
-  pushWorkEducation: function (){
+  pushWorkEducation: function (index){
     if (!app.isLogin()) {
       util.userLogin();
     } else {
+      var iden = index.currentTarget.id;
       wx.navigateTo({
-        url: './mySubClass/education',
+        url: './mySubClass/education?id=' +iden,
       })
     } 
     

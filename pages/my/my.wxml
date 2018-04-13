@@ -32,7 +32,7 @@
   <view class='cellBackSty'>
     <!-- 教育经历 -->
      <view class='lineStyTop'></view>
-      <view wx:for="{{diopArr}}" wx:key="{{index}}" id='{{index}}'>
+      <view wx:for="{{diopArr}}" wx:key="{{index}}" id='{{item.id}}' bindtap='pushWorkEducation'>
        <mycell title='{{item.title}}'
               detail='{{item.detail}}'></mycell>
        <view class='shortLineSty'></view>

@@ -1,4 +1,5 @@
 // pages/my/mySubClass/education.js
+var app = getApp();
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
           { title: '专业', pickerDataArr: [], pickerMode: '' },
           { title: '学历', pickerDataArr: ['小学', '初中', '高中', '大专', '本科', '硕士'], pickerMode: 'selector' }],
     
-    valueArr:['','','','','']
+    valueArr:['','','','',''],
+    educationId:''
   },
 
 
@@ -36,6 +38,66 @@ Page({
     newData[1].pickerDataArr = this.startDataArr();
     this.setData({
       defDataArr: newData
+    })
+    
+    if(options.id && options.id.length > 0){
+      that.getNetData({type:0,id:options.id});
+    }
+  },
+
+  getNetData:function(params){
+    var that = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.baseUrl +'users/education',
+      method:'POST',
+      header:app.header,
+      data:params,
+      success:function(res){
+        if(res.statusCode == 200){
+          var obj = res.data;
+          if(obj.code == 0){
+            if(params.type == 0){
+              //.获取信息
+              var newDataArr = [obj.data.startTime,           
+                                obj.data.endTime,
+                                 obj.data.school, 
+                                 obj.data.specialize, 
+                                 obj.data.diploma]
+              that.setData({
+                valueArr:newDataArr,
+                educationId:obj.data.id
+              })
+            }else{
+              wx.showToast({
+                title: '提交成功',
+              })
+              setTimeout(
+                () => {
+                  wx.navigateBack({
+
+                  })
+                }, 1500
+              )
+            }
+          }else{
+            wx.showToast({
+              title: obj.msg,
+              icon:'none'
+            })
+          }
+        }else{
+          wx.showToast({
+            title: app.errorMsg,
+            icon:'none'
+          })
+        }
+      },
+      complete:function(){
+        wx.hideLoading()
+      }
     })
   },
 
@@ -102,4 +164,19 @@ Page({
       valueArr: newDataArr
     })
   },
+ 
+  submitData:function(){
+    var that = this;
+    var params = {
+      startTime:that.data.valueArr[0],
+      endTime: that.data.valueArr[1],
+      school: that.data.valueArr[2],
+      specialize: that.data.valueArr[3],
+      diploma: that.data.valueArr[4],
+      id:that.data.educationId
+    }
+    that.getNetData(params);
+  }
+
+
 })
