@@ -172,7 +172,5 @@ Page({
         wx.hideLoading();
       }
     })
-    
-
   },
 })
