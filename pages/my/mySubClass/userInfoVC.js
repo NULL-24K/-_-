@@ -153,7 +153,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: function (res) {
         var newArr = that.data.dataArr;
-        newArr[0][0].detail = res.tempFilePaths;
+        newArr[0][0].detail = res.tempFilePaths[0];
         that.setData({
           dataArr:newArr
         })
@@ -286,8 +286,5 @@ Page({
    })
   
   }
-
-
-
 })
 

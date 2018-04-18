@@ -231,7 +231,7 @@ Page({
       startTime: that.data.valueArr[2],
       endTime: that.data.valueArr[3],
       jobDescribe: that.data.inputValue,
-      jobExprienceId:jobID
+      jobExprienceId:that.data.jobID
     }
     that.getNetData(data_);
   },
