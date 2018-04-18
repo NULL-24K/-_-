@@ -13,8 +13,9 @@ Page({
       { title: '期望薪资', pickMode: 'selector', placehoderStr: '请选择期望薪资', pickValueArr: ['1000~3000', '3001~5000', '5001~8000', '8000~12000', '12000~20000', '20000以上'] },
       { title: '求职状态', pickMode: 'selector', placehoderStr: '选择您当前求职状态', pickValueArr: ['正在找工作-随时到岗', '在职-正在考虑换工作', '在职-考虑更好的工作机会', '在职-暂无跳槽意向'] }
     ],
+    jonStatus:0,
     valueArr:['','','','','']
-  
+
   },
 
   /**
@@ -34,15 +35,18 @@ Page({
         if(res.statusCode == 200){
           var obj = res.data;
           if(obj.code == 0){
-            var newArr = [];
-            newArr.push(obj.data.intentionAddress);
-            newArr.push(obj.data.intentionIndustry);
-            newArr.push(obj.data.intentionPosition);
-            newArr.push(obj.data.intentionSalary);
-            newArr.push(obj.data.jobState);
-            that.setData({
-              valueArr:newArr
-            })
+            if(obj.data){
+              var newArr = [];
+              console.log(obj.data)
+              newArr.push(obj.data.intentionAddress);
+              newArr.push(obj.data.intentionIndustry);
+              newArr.push(obj.data.intentionPosition);
+              newArr.push(obj.data.intentionSalary);
+              newArr.push(obj.data.jobState);
+              that.setData({
+                valueArr: newArr
+              })
+            }
           }else{
             wx.showToast({
               title: obj.msg,
@@ -114,9 +118,19 @@ Page({
     var selectIndex = e.currentTarget.id;
     var newValueArr = that.data.valueArr;
     if (selectIndex == 0){
-      newValueArr[selectIndex] = e.detail.value;
+      var address = '';
+      for (var i = 0; i < e.detail.value.length;i ++ ){
+        address += e.detail.value[i];
+        address += i==2?'':'-'
+      }
+      newValueArr[selectIndex] = address;
     }else{
       newValueArr[selectIndex] = that.data.styData[selectIndex].pickValueArr[e.detail.value];
+      if(selectIndex == 4){
+        that.setData({
+          jonStatus:e.detail.value
+        })
+      }
     }
     that.setData({
       valueArr:newValueArr
@@ -134,14 +148,22 @@ Page({
       return;
     }
 
+    var params = {
+      'intentionAddress': that.data.valueArr[0],
+      'intentionIndustry': that.data.valueArr[1],
+      'intentionPosition': that.data.valueArr[2],
+      'intentionSalary': that.data.valueArr[3],
+      'jobState': that.data.jonStatus
+    }
     wx.showLoading({
       title: '加载中',
     })
+    console.log(params)
     wx.request({
       url: app.baseUrl + 'users/jobIntention',
       method:'POST',
       header:app.header,
-      data:{},
+      data: params,
       success:function(res){
         if(res.statusCode == 200){
           if(res.data.code == 0){

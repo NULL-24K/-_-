@@ -65,6 +65,7 @@ App({
           var  obj = res.data;
           if(obj.code == 0){//登录成功
             wx.setStorageSync("AccountToken", obj.data.token);
+            wx.setStorageSync('shareId', obj.data.shareId);
             that.header.token = obj.data.token;
             wx.showToast({
               title: obj.msg,

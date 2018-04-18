@@ -39,17 +39,19 @@ Page({
      success:function(res){
        if(res.statusCode == 200){
          var obj = res.data;
-         
          if(obj.code == 0){
-           var newData = that.data.dataArr;
-           for (var i = 0; i < newData.length; i++) {
-             for(var j = 0; j < newData[i].length; j++){
-               newData[i][j].detail = obj.data[i][j];
+           if(obj.data){
+             var newData = that.data.dataArr;
+             for (var i = 0; i < newData.length; i++) {
+               for (var j = 0; j < newData[i].length; j++) {
+                 newData[i][j].detail = obj.data[i][j];
+               }
              }
+             that.setData({
+               dataArr: newData
+             })
            }
-           that.setData({
-             dataArr:newData
-           })
+        
          }else{
 
          }
@@ -180,7 +182,12 @@ Page({
     } else if (index == 3) {
       newArr[2][index].detail = that.data.jobYearsArr[e.detail.value];
     } else {
-      newArr[2][index].detail = e.detail.value;
+      var address = '';
+      for (var i = 0;i <e.detail.value.length;i ++ ){
+        address += e.detail.value[i];
+        address += i==2?'':'-'
+      }
+      newArr[2][index].detail = address;
     }
     that.setData({
       dataArr: newArr
@@ -225,18 +232,18 @@ Page({
     //.提交信息
     
     //.首先上传图片
-    
+    var newArr = that.data.dataArr;
     var params = {
-      iconUrl : 'http://pic29.photophoto.cn/20131204/0034034499213463_b.jpg',
-      nickName : '独孤求败',
-      sex : '男',
-      phoneNum : '130****908',
-      emaill : '11******17@qq.com',
-      birthday : '1990-06-28',
-      education : '本科',
-      endEducationTime : '2014-07-01',
-      workYears : '5年以上',
-      address : '上海市-浦东新区-张江',
+      iconUrl: newArr[0][0].detail,//'http://pic29.photophoto.cn/20131204/0034034499213463_b.jpg',
+      nickName: newArr[0][1].detail,
+      sex: newArr[0][2].detail,
+      phoneNum: newArr[1][0].detail,
+      emaill: newArr[1][1].detail,
+      birthday: newArr[2][0].detail,
+      education: newArr[2][1].detail,
+      endEducationTime: newArr[2][2].detail,
+      workYears: newArr[2][3].detail,
+      address: newArr[2][4].detail,
     }
 
     wx.showLoading({

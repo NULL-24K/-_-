@@ -14,7 +14,8 @@ Page({
    ],
    valueArr:['','','',''],
    inputTextNum:0,
-   inputValue:''
+   inputValue:'',
+   jobID:null
   },
 
   startDataArr:function(){
@@ -42,6 +43,9 @@ Page({
     })
     if(options.id && options.id.length > 0){//获取工作信息
     this.getNetData({type:0,workExperienceId:options.id});
+    that.setData({
+      jobID: options.id
+    })
     }
   },
 
@@ -226,7 +230,8 @@ Page({
       jobName: that.data.valueArr[1],
       startTime: that.data.valueArr[2],
       endTime: that.data.valueArr[3],
-      jobDescribe: that.data.inputValue
+      jobDescribe: that.data.inputValue,
+      jobExprienceId:jobID
     }
     that.getNetData(data_);
   },

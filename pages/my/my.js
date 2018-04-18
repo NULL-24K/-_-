@@ -66,6 +66,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    
     this.getNetData();
     wx.stopPullDownRefresh();
   },
@@ -84,19 +85,21 @@ Page({
       success: function (res) {
         var obj = res.data;
         if (obj.code == 0) {
-          var userDescription_ = 'userDescription.value';
-          var userDic = that.data.userInfo;
-          userDic.name = obj.data.name;
-          userDic.sex = obj.data.sex;
-          userDic.diop = obj.data.education;
-          userDic.jobYears = obj.data.workYears;
-          that.setData({
-            diopArr: obj.data.educationList,
-            jobArr: obj.data.workExperienceList,
-            [userDescription_]: obj.data.advantage,
-            userInfo: userDic,
-            icon: obj.data.iconUrl
-          })
+          if (obj.data){
+            var userDescription_ = 'userDescription.value';
+            var userDic = that.data.userInfo;
+            userDic.name = obj.data.name;
+            userDic.sex = obj.data.sex;
+            userDic.diop = obj.data.education;
+            userDic.jobYears = obj.data.workYears;
+            that.setData({
+              diopArr: obj.data.educationList,
+              jobArr: obj.data.workExperienceList,
+              [userDescription_]: obj.data.workIntention,
+              userInfo: userDic,
+              icon: obj.data.iconUrl
+            })
+          }
         } else {
           wx.showToast({
             title: obj.msg,
