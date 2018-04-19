@@ -1,6 +1,6 @@
 <!--pages/my/mySubClass/workList.wxml-->
 <view class='backSty'>
- <view wx:for="{{workListArr}}" class='cellSty' bindtap='pushWorkDetail' wx:key="" id='{{item.id}}'>
+ <view wx:for="{{workListArr}}" class='cellSty' bindtap='pushWorkDetail' wx:key="" id='{{item.jobExprienceId}}'>
   <userInfoCell title="{{item.title}}"
                 detail="{{item.detail}}"
                 arrowImg="">

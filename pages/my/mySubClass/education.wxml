@@ -13,7 +13,8 @@
                 detail="{{valueArr[index]}}"
                 placeholderStr="必填"
                 arrowImg="{{}}"
-                isDisabled="{{false}}">
+                isDisabled="{{false}}"
+                bindendInput='onEndInput'>
   </userInfoCell>
   <view class='shortLineSty' wx:if="{{index!=(defDataArr.length-1)}}"></view>
  </view>

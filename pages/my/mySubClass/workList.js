@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    workListArr: [{ title: '12', detail: '34', workID: '1234' }, { title: '12', detail: '34', workID: '4567'}]
+    workListArr: [{ title: '12', detail: '34', jobExprienceId: '1234' }, { title: '12', detail: '34', jobExprienceId: '4567'}]
   },
 
   /**

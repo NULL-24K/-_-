@@ -41,7 +41,10 @@ Page({
     })
     
     if(options.id && options.id.length > 0){
-      that.getNetData({type:0,id:options.id});
+      that.getNetData({ type: 0,'educationId':options.id});
+      that.setData({
+        educationId:options.id
+      })
     }
   },
 
@@ -60,16 +63,18 @@ Page({
           var obj = res.data;
           if(obj.code == 0){
             if(params.type == 0){
-              //.获取信息
-              var newDataArr = [obj.data.startTime,           
-                                obj.data.endTime,
-                                 obj.data.school, 
-                                 obj.data.specialize, 
-                                 obj.data.diploma]
-              that.setData({
-                valueArr:newDataArr,
-                educationId:obj.data.id
-              })
+             if(obj.data){
+               //.获取信息
+               var newDataArr = [obj.data.startTime,
+               obj.data.endTime,
+               obj.data.school,
+               obj.data.specialize,
+               obj.data.diploma]
+               that.setData({
+                 valueArr: newDataArr,
+                 educationId: obj.data.educationId
+               })
+             }
             }else{
               wx.showToast({
                 title: '提交成功',
@@ -164,6 +169,19 @@ Page({
       valueArr: newDataArr
     })
   },
+
+  onEndInput:function(e){
+    var that = this;
+    var newDataArr = that.data.valueArr;
+    if(e.detail.id == '学校'){
+      newDataArr[2] =e.detail.value;
+    }else{
+      newDataArr[3] = e.detail.value;
+    }
+    that.setData({
+      valueArr: newDataArr
+    })
+  },
  
   submitData:function(){
     var that = this;
@@ -173,7 +191,7 @@ Page({
       school: that.data.valueArr[2],
       specialize: that.data.valueArr[3],
       diploma: that.data.valueArr[4],
-      id:that.data.educationId
+      educationId:that.data.educationId
     }
     that.getNetData(params);
   }

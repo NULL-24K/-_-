@@ -42,7 +42,7 @@ Page({
       styData:newData
     })
     if(options.id && options.id.length > 0){//获取工作信息
-    this.getNetData({type:0,workExperienceId:options.id});
+      this.getNetData({ type: 0, 'jobExprienceId':options.id});
     that.setData({
       jobID: options.id
     })
@@ -65,15 +65,17 @@ Page({
           var obj = res.data;
           if(obj.code == 0){
             if(params.type == 0){
-              var listArr = [obj.data.companyName,
-                            obj.data.jobName,
-                            obj.data.startTime,
-                             obj.data.endTime];
-              that.setData({
-                valueArr:listArr,
-                inputValue: obj.data.jobDescribe,
-                inputTextNum: obj.data.jobDescribe.length
-              })
+              if(obj.data){
+                var listArr = [obj.data.companyName,
+                obj.data.jobName,
+                obj.data.startTime,
+                obj.data.endTime];
+                that.setData({
+                  valueArr: listArr,
+                  inputValue: obj.data.jobDescribe,
+                  inputTextNum: obj.data.jobDescribe.length
+                })
+              }
             }else{
               wx.showToast({
                 title: '提交成功',
