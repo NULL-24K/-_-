@@ -42,7 +42,7 @@ Page({
        success:function(res){
          if(res.statusCode == 200){
            var obj = res.data;
-           if(obj.code == 0){
+           if(obj.code == 0 && obj.data){
              that.setData({
                jobName: obj.data.jobName,
                jobIncom: obj.data.jobIncom,
