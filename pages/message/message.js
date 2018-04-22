@@ -1,6 +1,6 @@
 // pages/message/message.js
 var util = require('../../utils/util.js')
-
+var app = getApp();
 Page({
 
   /**
@@ -62,11 +62,31 @@ Page({
   
   },
 
+  getMessageData:function(){
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.baseUrl+'message/msgList',
+      method:'POST',
+      data:{},
+      header:app.header,
+      success:function(res){
+        
+      },
+      complete:function(){
+        wx.hideLoading()
+      }
+    })
+  },
+
+
+
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+   
   },
 
   pushDetail:function(e){

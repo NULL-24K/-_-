@@ -17,7 +17,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#d9974a",
     "navigationBarTitleText": "直🐝聘",
-    "navigationBarTextStyle": "light"
+    "navigationBarTextStyle": "light",
+    "backgroundColor": "#f5f5f5"
   },
   "tabBar": {
     "list": [

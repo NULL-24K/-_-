@@ -3,5 +3,6 @@
   "navigationBarBackgroundColor": "#d9974a",
   "usingComponents":{
     "interviewCell":"../../pages/components/defCell/interviewCell"
-  }
+  },
+  "enablePullDownRefresh": true
 }
