@@ -22,7 +22,9 @@ Page({
     jobLocation:'',
     jobDescribe: '',
     applyState:'立即申请',
-    jobid:''
+    jobId:'',
+    companyName:'',
+    administratorId:''
   },
 
   /**
@@ -37,13 +39,13 @@ Page({
      wx.request({
        url: app.baseUrl +'jobs/jobDetail',
        method:'POST',
-       data: { jobID: id},
+       data: { jobId: id},
        header:app.header,
        success:function(res){
          if(res.statusCode == 200){
            var obj = res.data;
            if(obj.code == 0 && obj.data){
-             console.log(typeof obj.data.wellArr)
+             console.log(obj.data)
              that.setData({
                jobName: obj.data.jobName,
                jobIncom: obj.data.jobIncom,
@@ -57,6 +59,9 @@ Page({
                jobLocation: obj.data.jobLocation,
                jobDescribe: obj.data.jobDescribe,
                applyState: obj.data.applyState,
+               companyName: obj.data.companyName,
+               administratorId: obj.data.administratorId,
+               jobId: obj.data.jobid
              })
            }else{
              wx.showToast({
@@ -137,11 +142,17 @@ Page({
           icon:'none'
         })
       }else{
+        var params = {
+          jobId: that.data.jobId,
+          companyName: that.data.companyName,
+          jobName: that.data.jobName,
+          administratorId: that.data.administratorId,
+        }
         wx.request({
           url: app.baseUrl +'apply/applyJob',
           method:'POST',
           header:app.header,
-          data: { jobId: that.data.jobid},
+          data: params,
           success:function(res){
             if(res.statusCode == 200){
               var obj = res.data;

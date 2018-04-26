@@ -11,10 +11,11 @@ Page({
     itemArr: [],
   },
 
-  pushDetailVC: (index) => {
-    var jobID = index.currentTarget.id;
+  pushDetailVC:function(index){
+    var that = this;
+    var obj = that.data.itemArr[index.currentTarget.id];
     wx.navigateTo({
-      url: '../main/main?jobID=' + jobID,
+      url: '../main/main?jobID=' + obj.ID + '&administratorId=' + obj.administratorId,
     })
   },
 

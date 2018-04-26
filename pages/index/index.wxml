@@ -13,8 +13,7 @@
     <button bindtap='pushMain' >点击跳转至首页</button>
   </view>
 </view> -->
-
-<scroll-view>
+<view>
   <defCell wx:for="{{itemArr}}" 
             data-types='{{index}}' 
             imagesrc='{{item.companyImgUrl}}'
@@ -26,6 +25,6 @@
             years='{{item.workExperienc}}'
             salary='{{item.salary}}'
             time='{{item.time}}'
-            id="{{item.ID}}"> 
+            id="{{index}}"> 
   </defCell>
-</scroll-view>
+</view>
