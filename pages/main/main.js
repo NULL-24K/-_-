@@ -45,7 +45,7 @@ Page({
          if(res.statusCode == 200){
            var obj = res.data;
            if(obj.code == 0 && obj.data){
-             console.log(obj.data)
+            // console.log(obj.data)
              that.setData({
                jobName: obj.data.jobName,
                jobIncom: obj.data.jobIncom,

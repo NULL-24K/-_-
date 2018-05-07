@@ -73,6 +73,9 @@ Page({
   
 
   getNetData:function(){
+    if (!app.isLogin()){
+      return;
+    }
     var that = this;
     wx.showLoading({
       title: '加载中',

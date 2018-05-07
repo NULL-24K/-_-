@@ -238,7 +238,7 @@ Page({
       nickName: newArr[0][1].detail,
       sex: newArr[0][2].detail,
       phoneNum: newArr[1][0].detail,
-      emaill: newArr[1][1].detail,
+      email: newArr[1][1].detail,
       birthday: newArr[2][0].detail,
       education: newArr[2][1].detail,
       endEducationTime: newArr[2][2].detail,
