@@ -27,7 +27,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    if (app.globalData.userInfo){
+      var userinfo = app.globalData.userInfo
+      if (userinfo.avatarUrl){
+        that.setData({
+          icon: userinfo.avatarUrl
+        })
+      }
+    }
   },
 
   /**
@@ -100,7 +108,7 @@ Page({
               jobArr: obj.data.workExperienceList,
               [userDescription_]: obj.data.workIntention,
               userInfo: userDic,
-              icon: obj.data.iconUrl
+              // icon: obj.data.iconUrl
             })
           }
         } else {

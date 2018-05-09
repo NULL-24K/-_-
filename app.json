@@ -15,7 +15,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#d9974a",
+    "navigationBarBackgroundColor": "#f69700",
     "navigationBarTitleText": "直🐝聘",
     "navigationBarTextStyle": "light",
     "backgroundColor": "#f5f5f5"
@@ -25,20 +25,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "pages/images/main_sel.jpg",
-        "selectedIconPath": "pages/images/main_def.jpg"
+        "iconPath": "pages/images/main_def.png",
+        "selectedIconPath": "pages/images/main_sel.png"
       },
       {
         "pagePath": "pages/message/message",
         "text": "消息",
-        "iconPath": "pages/images/message_def.jpg",
-        "selectedIconPath": "pages/images/message_sel.jpg"
+        "iconPath": "pages/images/message_def.png",
+        "selectedIconPath": "pages/images/message_sel.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "pages/images/my_def.jpg",
-        "selectedIconPath": "pages/images/my_sel.jpg"
+        "iconPath": "pages/images/my_def.png",
+        "selectedIconPath": "pages/images/my_sel.png"
       }
     ]
   }

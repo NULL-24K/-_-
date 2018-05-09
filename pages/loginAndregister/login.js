@@ -2,6 +2,7 @@
 
 var util = require('../../utils/util.js')
 var app = getApp();
+var interval = null
 Page({
 
   /**
@@ -12,7 +13,10 @@ Page({
     numberImg:'/pages/images/other/signin_account_press@2x.png',
     psdImg:'/pages/images/other/signin_password_press@2x.png',
     phoneNum:'',
-    psd:''
+    psd:'',
+    getMsgCode:'点击获取',
+    currentTime: 61,
+    disabled:false,
   },
 
   /**
@@ -82,20 +86,89 @@ Page({
   onShareAppMessage: function () {
   
   },
+  //获取短信验证码 
+  getMsgFun:function(){
+    var that = this
+    var alertStr = '';
+    if (this.data.phoneNum.length == 0) {
+      alertStr = '账号不能为空'
+    } else if (this.data.phoneNum.length != 11) {
+      alertStr = '手机号码格式不正确';
+    } 
+    if (alertStr.length > 0) {
+      wx.showToast({
+        title: alertStr,
+        icon: 'none'
+      })
+      return;
+    }
+    this.getCode();
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.baseUrl + 'account/getMsg',
+      method: 'POST',
+      data: { phoneNum: that.data.phoneNum },
+      header: app.header,
+      success: function (res) {
+        var obj = res.data;
+        if (obj.code == 0) {
+          wx.showToast({
+            title: '短信验证码发送成功',
+            icon: 'none'
+          })
+        } else {
+          wx.showToast({
+            title: obj.msg,
+            icon: 'none'
+          })
+        }
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+    var that = this
+    that.setData({
+      disabled: true
+    }) 
+  },
+
+  getCode:function(){
+    var that = this;
+    var currentTime = that.data.currentTime
+    console.log(currentTime)
+    interval = setInterval(function () {
+      currentTime--;
+      that.setData({
+        getMsgCode: currentTime + '秒'
+      })
+      if (currentTime <= 0) {
+        clearInterval(interval)
+        that.setData({
+          getMsgCode: '重新发送',
+          currentTime: 61,
+          disabled: false
+        })
+      }
+    }, 1000)
+   
+  },
 
   logintap:function(){
     var alertStr = '';
-
+/*
+else if (!util.formatIsTrue(3, this.data.phoneNum)){
+      alertStr='手机号码格式不正确';
+    }
+*/
     if(this.data.phoneNum.length == 0){
       alertStr = '账号不能为空'
     } else if (this.data.psd.length == 0){
-      alertStr = '密码不能为空'
-    }else if (!util.formatIsTrue(3, this.data.phoneNum)){
-      alertStr='手机号码格式不正确';
-    }else if(this.data.psd.length < 6){
-      alertStr='密码不能小于6位'
-    }else if(this.data.psd.length > 20){
-      alertStr='密码不能大于20位'
+      alertStr = '短信验证码不能为空'
+    }else if(this.data.psd.length != 6){
+      alertStr ='短信验证码格式不正确'
     }
 
     if(alertStr.length >0){

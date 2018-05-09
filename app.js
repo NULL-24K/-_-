@@ -10,6 +10,24 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var that = this;
+        wx.request({
+          url: this.baseUrl +'account/weChatLogin',
+          data: {code:res.code},
+          method: 'POST',
+          success: function (res) {
+            if(res.data.code == 0 && res.data.data){
+              that.weChatInfo = res.data.data;
+              if (res.data.data.token){//如果已经使用手机号码注册 此处直接登录
+                wx.setStorageSync("AccountToken", res.data.data.token);
+              }
+              that.header={token: wx.getStorageSync('AccountToken') }
+            }
+          },
+          complete:function(){
+
+          }
+        })
       }
     })
     // 获取用户信息
@@ -19,6 +37,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
@@ -36,6 +55,11 @@ App({
   globalData: {
     userInfo: null
   },
+  //微信openID信息
+  weChatInfo:{
+    session_key:null,
+    openid:null
+  },
 
   baseUrl:'http://localhost:3000/',
   errorMsg:'网络异常,请重试',
@@ -52,6 +76,13 @@ App({
 
   userLogin:function(obj,callBack){
     var that = this;
+    
+    if (that.weChatInfo.session_key){
+      obj.session_key = that.weChatInfo.session_key
+    }
+    if (that.weChatInfo.openid) {
+      obj.openid = that.weChatInfo.openid
+    }
     wx.showLoading({
       title: '加载中...',
     })
@@ -167,5 +198,5 @@ App({
   //     }
   //   })
   // }
-  
+  //https://api.weixin.qq.com/sns/jscode2session?appid=wxb516fc2328c18cea&secret=c61463205e4791a8bf15ff4af9771f5c&js_code=033JiSos13A7ko0UN9ms14YMos1JiSob&grant_type=authorization_code
 })

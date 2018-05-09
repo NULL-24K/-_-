@@ -10,11 +10,12 @@
           class='inputSty'
           bindblur='endInput'
             ></input>
+    <button disabled='{{disabled}}' class='getMsgClass' bindtap='getMsgFun'>{{getMsgCode}}</button>
   </view>
    <view class='linesty'></view> 
   <view class='inputBackSty'>
    <image class='inputImgSty' src='{{psdImg}}'></image> 
-   <input placeholder='请输入密码(6~20位)' 
+   <input placeholder='请输入短信验证码' 
           placeholder-class='inptuPlaceSty' 
           password='true'
           bindblur='endInputPsd' 
