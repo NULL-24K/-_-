@@ -83,6 +83,9 @@ App({
     if (that.weChatInfo.openid) {
       obj.openid = that.weChatInfo.openid
     }
+    if (wx.getStorageSync('shareId')){
+      obj.shareId = wx.getStorageSync('shareId');
+    }
     wx.showLoading({
       title: '加载中...',
     })

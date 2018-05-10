@@ -7,17 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    itemArr:[{jobName:'招商银行客服(纯接听)',interType:'申请成功',companyName:'招商银行',timeStr:'2018-4-8 08:08',iden:''},
+    itemArr:[],
+    isHidden:true,
+    isShowNotif:true,
+    notifStr:''
+    /*
+    {jobName:'招商银行客服(纯接听)',interType:'申请成功',companyName:'招商银行',timeStr:'2018-4-8 08:08',iden:''},
             { jobName: '顺丰外呼业务', interType: '收到面试邀请', companyName: '顺丰快递公司', timeStr: '2018-3-8 08:09', iden: '' },
             { jobName: '海尔冰箱操作工', interType: '已拒绝面试邀请', companyName: '海尔集团', timeStr: '2018-3-5 12:08', iden: '' },
-            { jobName: '总经理助理', interType: '没有获取面试机会', companyName: '安徽金蜜蜂人力资源有限公司', timeStr: '2018-3-3', iden: '' }],
+            { jobName: '总经理助理', interType: '没有获取面试机会', companyName: '安徽金蜜蜂人力资源有限公司', timeStr: '2018-3-3', iden: '' }
+    */
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+ 
   },
 
   /**
@@ -31,7 +37,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getMessageData();
+    if (!app.isLogin()){
+      this.setData({
+        notifStr: '您尚未登录',
+        isShowNotif:false
+      })
+    }else{
+      this.setData({
+        notifStr: '您还没有申请任何职位，去首页发现更多职位'
+      })
+    }
+    
   },
 
   /**
@@ -52,7 +69,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getMessageData();
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -63,6 +81,10 @@ Page({
   },
 
   getMessageData:function(){
+    if (!app.isLogin()) {
+      return;
+    }
+    var that = this;
     wx.showLoading({
       title: '加载中...',
     })
@@ -72,7 +94,36 @@ Page({
       data:{},
       header:app.header,
       success:function(res){
-        
+        var alertStr = ''
+        console.log(res.data)
+        if(res.statusCode == 200){
+          if(res.data.code ==0){
+            if(res.data.data && res.data.data.length >0){
+              that.setData({
+                itemArr:res.data.data,
+                isHidden: (res.data.data.length >10)?false:true,
+                isShowNotif: (res.data.data.length == 0)?false:true
+              })
+            }else{
+              alertStr ='您还没有申请任何职位'
+              that.setData({
+                itemArr: [],
+                isHidden:false,
+                isShowNotif:true
+              })
+            }
+          }else{
+            alertStr =res.data.msg
+          }
+        }else{
+          alertStr = res.data.msg
+        }
+        if(alertStr.length > 0){
+          wx.showToast({
+            title: alertStr,
+            icon:'none'
+          })
+        }
       },
       complete:function(){
         wx.hideLoading()

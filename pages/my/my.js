@@ -193,6 +193,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title:'小程序测试转发',
+      path:'/pages/app',
+      success:function(res){
+        console.log(res)
+      }
+    }
   }
 })

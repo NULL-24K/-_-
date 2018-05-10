@@ -24,6 +24,11 @@ Page({
    */
   onLoad: function (options) {
     this.getNetData();
+    var shareId = options.shareId;
+    console.log(shareId);
+    if(shareId){
+      wx.setStorageSync("shareId", shareId);
+    }
   },
 
   /**

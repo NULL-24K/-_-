@@ -3,14 +3,15 @@
 <view class='backSty'>
  <interviewCell wx:for="{{itemArr}}" 
                 title="{{item.jobName}}"
-                interTypeStr="{{item.interType}}"
+                interTypeStr="{{item.intentionStatus}}"
                 companyName="{{item.companyName}}"
-                timeStr="{{item.timeStr}}"
+                timeStr="{{item.updatedAt}}"
                 class="cellBackSty"
                 wx:key=""
                 bindtap="pushDetail"
                 id = '{{index}}'>
                 </interviewCell>
- <button class='btnSty' bindtap=''>查看申请记录>></button>
+ <button class='btnSty' bindtap='' hidden='{{isHidden}}'>查看申请记录>></button>
+ <text class='notifClass' hidden='{{isShowNotif}}'>{{notifStr}}</text>
 </view>
 
