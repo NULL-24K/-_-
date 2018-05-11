@@ -182,6 +182,12 @@ Page({
     
   },
 
+  pushHelp:function(){
+    wx.navigateTo({
+      url: './mySubClass/helpAndSetting',
+    })
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */

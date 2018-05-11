@@ -63,11 +63,16 @@ Page({
                administratorId: obj.data.administratorId,
                jobId: obj.data.jobid
              })
-           }else{
+           } else {
              wx.showToast({
                title: obj.msg,
-               icon:'error'
+               icon: 'none'
              })
+             setTimeout(()=>{
+               wx.navigateBack({
+                 
+               })
+             },1000)
            }
          }else{
            wx.showToast({
@@ -142,6 +147,9 @@ Page({
           icon:'none'
         })
       }else{
+        if (that.data.jobName.length == 0){
+          return;
+        }
         var params = {
           jobId: that.data.jobId,
           companyName: that.data.companyName,

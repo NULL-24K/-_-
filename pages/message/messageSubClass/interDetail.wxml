@@ -1,5 +1,11 @@
 <!--pages/message/messageSubClass/interDetail.wxml-->
 <view class='backSty'>
  <mycell title="{{titleStr}}" detail="{{detailStr}}" bindtap="pushCompany"></mycell>
- <detailCell lineCol="{{true}}"></detailCell>
+ <detailCell lineCol="{{true}}"
+             timeStr="{{item.timeStr}}"
+             status='{{item.status}}'
+             detail='{{item.detail}}'
+             lineCol='{{item.lineCol}}'
+             isSuccess='{{item.isSuccess}}'
+             wx:for='{{dataArr}}' wx:key='{{index}}'></detailCell>
 </view>

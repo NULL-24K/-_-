@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mycell": "../../components/defCell/userInfoCell"
+  },
+  "navigationBarTitleText": "帮助与反馈"
+}

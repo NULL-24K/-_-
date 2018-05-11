@@ -41,12 +41,12 @@
   <view class='lineStyTop'></view>
   </view>
 
-  <view class='cellBackSty'>
+  <view class='cellBackSty' bindtap='pushHelp'>
     <!-- 预览简历 -->
     <view class='lineStyTop'></view>
     <mycell title='帮助与反馈'
             detail='{{CVDescription.value}}'
-            placeholderStr='您的一切烦恼,小蜂都可以帮您解决'
+            placeholderStr='您的一切烦恼,小蜜蜂都可以帮您解决'
          >
      </mycell>
   <view class='lineStyTop'></view>

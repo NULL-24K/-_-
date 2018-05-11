@@ -1,16 +1,16 @@
 <!--pages/components/defCell/messageDetailCell.wxml-->
 <view class='backSty'>
  <view class='leftBackSty'>
-  <text class='timeSty'>2018-4-8</text>
+  <text class='timeSty'>{{timeStr}}</text>
  </view>
  <view class='imgBackSty'>
   <view class="lineViewSty_top" style="background-color:{{lineCol}}"></view>
   <image src='{{isSuccess?successimg:invalidimg}}' class='typeImgSty'></image>
-  <view class="lineViewSty_bottom"></view>
+  <view class="lineViewSty_bottom" style="background-color:{{lineCol}}"></view>
  </view>
 
  <view class='rightBackSty'>
-  <text class='statusSty'>申请成功</text>
-  <text class='detailTextSty'>请耐心等待 HR将在24小时内处理您的简历</text>
+  <text class='statusSty'>{{status}}</text>
+  <text class='detailTextSty'>{{detail}}</text>
  </view>
 </view>

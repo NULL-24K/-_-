@@ -95,7 +95,7 @@ Page({
       header:app.header,
       success:function(res){
         var alertStr = ''
-        console.log(res.data)
+       // console.log(res.data)
         if(res.statusCode == 200){
           if(res.data.code ==0){
             if(res.data.data && res.data.data.length >0){
@@ -145,6 +145,7 @@ Page({
     var obj = this.data.itemArr[e.currentTarget.id];
     //console.log(obj)
     wx.navigateTo({
+      
       url: './messageSubClass/interDetail?obj=' +JSON.stringify(obj),
     })
   }

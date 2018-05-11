@@ -1,0 +1,33 @@
+/* pages/my/mySubClass/helpAndSetting.wxss */
+
+.backSty{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  height: 45px;
+  width: 100%;
+  border-style: solid;
+  border-top-width: 1px;
+  border-top-color: lightgray;
+  border-bottom-width: 1px;
+  border-bottom-color: lightgray;
+  align-items: center;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+
+.cellBackSty{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  background-color: white;
+  height: 44pt; 
+}
+
+.lineStyTop{
+  width: 100%;
+  height: 1px;
+  background-color: lightgrey;
+}

@@ -1,0 +1,11 @@
+<!--pages/my/mySubClass/helpAndSetting.wxml-->
+<view class='cellBackSty' bindtap='pushHelp'>
+    <!-- 预览简历 -->
+    <view class='lineStyTop'></view>
+    <mycell title='客服电话'
+            detail='{{phoneNum}}'
+            placeholderStr=''
+         >
+     </mycell>
+  <view class='lineStyTop'></view>
+  </view>

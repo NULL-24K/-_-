@@ -9,6 +9,7 @@
   display: flex;
   width: 35%;
   flex-direction: column;
+  justify-content: center;
 }
 
 .imgBackSty{
@@ -22,22 +23,23 @@
   display: flex;
   width: 60%;
   flex-direction: column;
+  justify-content: space-around
 }
 
 .lineViewSty_top{
-  width: 2px;
+  width: 1px;
   height: 20px;
   background-color: green;
 }
 .lineViewSty_bottom{
-  width: 2px;
+  width: 1px;
   height: 40px;
   background-color: green;
 }
 
 .typeImgSty{
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 .timeSty{
