@@ -31,7 +31,7 @@ margin-right: 15pt;
 }
 
 .titleLab{
-  font-size: 12pt;
+  font-size: 11pt;
 }
 
 .detailLabSty{
