@@ -22,8 +22,8 @@
           class='inputSty'></input>
   </view>
   <button class='loginBtnSty' bindtap='logintap'>登录</button>
-  <view class='otherBtnBackSty'>
+  <!-- <view class='otherBtnBackSty'>
     <text class='otherBtnSty'>立即注册</text>
     <text class='otherBtnSty'>忘记密码</text>
-  </view>
+  </view> -->
 </view>

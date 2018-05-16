@@ -23,9 +23,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    wx.showLoading({
-      title: '正在加载',
-    })
+    // wx.showLoading({
+    //   title: '正在加载',
+    // })
     wx.request({
       url: app.baseUrl + 'users/jobIntention',
       method:'POST',
@@ -48,18 +48,24 @@ Page({
               })
             }
           }else{
-            wx.showToast({
-              title: obj.msg,
-            })
+              wx.showToast({
+                title: obj.msg,
+              })
+            
           }
         }else{
-          wx.showToast({
-            title: '网络异常,请重试',
-          })
+          if (alertStr.length > 0) {
+           
+              wx.showToast({
+                title: '网络异常,请重试',
+              })
+           
+          }
+          
         }
       },
       complete:function(){
-        wx.hideLoading();
+      //  wx.hideLoading();
       }
     })
   },
@@ -155,9 +161,9 @@ Page({
       'intentionSalary': that.data.valueArr[3],
       'jobState': that.data.jonStatus
     }
-    wx.showLoading({
-      title: '加载中',
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     console.log(params)
     wx.request({
       url: app.baseUrl + 'users/jobIntention',
@@ -191,7 +197,7 @@ Page({
         }
       },
       complete:function(){
-        wx.hideLoading();
+        //wx.hideLoading();
       }
     })
   },

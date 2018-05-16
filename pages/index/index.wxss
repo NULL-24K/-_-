@@ -1,9 +1,13 @@
 /* *index.wxss*
+
+
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+
 
 .userinfo-avatar {
   width: 128rpx;
@@ -26,3 +30,10 @@
 .btnSelSty{
   color: green
 } */
+
+
+.splyClass{
+  width: 100%;
+  height: 6px;
+  background-color: lightgray
+}

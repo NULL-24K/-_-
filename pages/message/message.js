@@ -11,12 +11,6 @@ Page({
     isHidden:true,
     isShowNotif:true,
     notifStr:''
-    /*
-    {jobName:'招商银行客服(纯接听)',interType:'申请成功',companyName:'招商银行',timeStr:'2018-4-8 08:08',iden:''},
-            { jobName: '顺丰外呼业务', interType: '收到面试邀请', companyName: '顺丰快递公司', timeStr: '2018-3-8 08:09', iden: '' },
-            { jobName: '海尔冰箱操作工', interType: '已拒绝面试邀请', companyName: '海尔集团', timeStr: '2018-3-5 12:08', iden: '' },
-            { jobName: '总经理助理', interType: '没有获取面试机会', companyName: '安徽金蜜蜂人力资源有限公司', timeStr: '2018-3-3', iden: '' }
-    */
   },
 
   /**
@@ -70,7 +64,10 @@ Page({
    */
   onPullDownRefresh: function () {
     this.getMessageData();
-    wx.stopPullDownRefresh()
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 1000
+    )
   },
 
   /**
@@ -85,9 +82,9 @@ Page({
       return;
     }
     var that = this;
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     wx.request({
       url: app.baseUrl+'message/msgList',
       method:'POST',
@@ -119,14 +116,16 @@ Page({
           alertStr = res.data.msg
         }
         if(alertStr.length > 0){
-          wx.showToast({
-            title: alertStr,
-            icon:'none'
-          })
+          
+            wx.showToast({
+              title: alertStr,
+              icon: 'none'
+            })
+          
         }
       },
       complete:function(){
-        wx.hideLoading()
+     //   wx.hideLoading()
       }
     })
   },

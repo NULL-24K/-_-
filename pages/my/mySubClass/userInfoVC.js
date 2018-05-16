@@ -246,9 +246,9 @@ Page({
       address: newArr[2][4].detail,
     }
 
-    wx.showLoading({
-      title: '加载中',
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
    wx.request({
      url: app.baseUrl +'users/persionInfo',
      method:'POST',
@@ -257,9 +257,11 @@ Page({
      success:function(res){
        if(res.statusCode == 200){
          if(res.data.code == 0){
-           wx.showToast({
-             title: '提交成功',
-           })
+           
+             wx.showToast({
+               title: '提交成功',
+             })
+           
            setTimeout(
              ()=>{
                wx.navigateBack({
@@ -268,20 +270,25 @@ Page({
              },1500
            )
          }else{
-           wx.showToast({
-             title: res.data.msg,
-             icon:'none'
-           })
+           
+             wx.showToast({
+               title: res.data.msg,
+               icon: 'none'
+             })
+           
          }
        }else{
-         wx.showToast({
-           title: app.errorMsg,
-           icon:'none'
-         })
+         
+           wx.showToast({
+             title: app.errorMsg,
+             icon: 'none'
+           })
+         
+         
        }
      },
      complete:function(){
-       wx.hideLoading()
+      // wx.hideLoading()
      }
    })
   

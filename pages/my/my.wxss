@@ -47,7 +47,7 @@
 
 .andBtnSty{
   font-size: 14px;
-  color: red;
+  color: #ffcc00;
   background-color: white;
 }
 .shortLineSty{

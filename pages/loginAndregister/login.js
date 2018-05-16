@@ -58,7 +58,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 1000
+    )
   },
 
   /**
@@ -103,9 +106,9 @@ Page({
       return;
     }
     this.getCode();
-    wx.showLoading({
-      title: '加载中',
-    })
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     wx.request({
       url: app.baseUrl + 'account/getMsg',
       method: 'POST',
@@ -126,7 +129,7 @@ Page({
         }
       },
       complete: function () {
-        wx.hideLoading()
+       // wx.hideLoading()
       }
     })
     var that = this

@@ -78,9 +78,9 @@ Page({
   getNetData:function(){
     //msgDetail
     var that = this;
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     wx.request({
       url: app.baseUrl + 'message/msgDetail',
       method: 'POST',
@@ -114,14 +114,15 @@ Page({
           alertStr = res.data.msg
         }
         if (alertStr.length > 0) {
-          wx.showToast({
-            title: alertStr,
-            icon: 'none'
-          })
+          
+            wx.showToast({
+              title: alertStr,
+              icon: 'none'
+            })
         }
       },
       complete: function () {
-        wx.hideLoading()
+       // wx.hideLoading()
       }
     })
   },

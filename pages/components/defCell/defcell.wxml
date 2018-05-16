@@ -11,7 +11,7 @@
        <text class='detailLabSty'>{{location+'|'+diploma+'|'+years}}</text>
       </view>
       <view class='rightSty'>
-       <text class='detailLabSty'>{{salary}}</text>
+       <text class='detailLabSty_sl' style=''>{{salary}}</text>
        <text class='detailLabSty'>{{time}}</text>
       </view>
     </view>

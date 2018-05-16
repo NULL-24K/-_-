@@ -31,7 +31,7 @@
     </textarea>
    <view class='shortLineSty'></view>
    <view class='notifBackSty'>
-    <text class='fangwenSty'>范文</text>
+    <text class='fangwenSty'></text>
     <text class='textNumSty'>{{inputTextNum+'/2000'}}</text>
    </view>
    <button class='subBtnSty' bindtap='submitData'>完成</button>

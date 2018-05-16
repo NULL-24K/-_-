@@ -67,9 +67,7 @@ Page({
 
   getNetData:function(){
     var that = this;
-    wx.showLoading({
-      title: '加载中...',
-    })
+   
     wx.request({
       url: app.baseUrl + 'users/workList',
       method: 'POST',
@@ -95,7 +93,7 @@ Page({
         }
       },
       complete: function () {
-        wx.hideLoading();
+      //  wx.hideLoading();
       }
     })
   },

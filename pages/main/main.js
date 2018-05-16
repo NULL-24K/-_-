@@ -33,9 +33,9 @@ Page({
   onLoad: function (options) {
     var id = options.jobID;
      var that = this;
-     wx.showLoading({
-       title: '加载中...',
-     })
+    //  wx.showLoading({
+    //    title: '加载中...',
+    //  })
      wx.request({
        url: app.baseUrl +'jobs/jobDetail',
        method:'POST',
@@ -82,7 +82,7 @@ Page({
          }
        },
        complete:function(){
-         wx.hideLoading();
+        // wx.hideLoading();
        }
      })
   },
@@ -119,7 +119,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 1000
+    )
   },
 
   /**
@@ -179,16 +182,19 @@ Page({
               }else{
                 wx.showToast({
                   title: obj.msg,
+                  icon:'none',
+                  duration:2000
                 })
               }
             }else{
               wx.showToast({
                 title: '网络异常,请重试',
+                icon: 'none'
               })
             }
           },
           complete:function(){
-            wx.hideLoading();
+           // wx.hideLoading();
           }
         })
       }

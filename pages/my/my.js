@@ -76,7 +76,10 @@ Page({
   onPullDownRefresh: function () {
     
     this.getNetData();
-    wx.stopPullDownRefresh();
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 1000
+    )
   },
   
 
@@ -112,10 +115,12 @@ Page({
             })
           }
         } else {
-          wx.showToast({
-            title: obj.msg,
-            icon: 'none'
-          })
+          setTimeout(function(){
+            wx.showToast({
+              title: obj.msg,
+              icon: 'none'
+            })
+          },1500)
         }
       },
       complete: function () {

@@ -50,9 +50,9 @@ Page({
 
   getNetData:function(params){
     var that = this;
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     wx.request({
       url: app.baseUrl +'users/education',
       method:'POST',
@@ -101,7 +101,7 @@ Page({
         }
       },
       complete:function(){
-        wx.hideLoading()
+      //  wx.hideLoading()
       }
     })
   },

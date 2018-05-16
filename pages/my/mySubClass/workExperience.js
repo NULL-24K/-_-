@@ -51,10 +51,10 @@ Page({
 
   getNetData:function(params){
     var that = this;
-    wx.showLoading({
-      title: '加载中...',
-      icon:'none'
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    //   icon:'none'
+    // })
     wx.request({
       url: app.baseUrl + 'users/workExperience',
       method:'POST',
@@ -89,20 +89,26 @@ Page({
               )
             }
           }else{
-            wx.showToast({
-              title: obj.msg,
-              icon:'none'
-            })
+            
+              wx.showToast({
+                title: obj.msg,
+                icon: 'none'
+              })
+            
+            
           }
         }else{
-          wx.showToast({
-            title: app.errorMsg,
-            icon:'none'
-          })
+          
+            wx.showToast({
+              title: app.errorMsg,
+              icon: 'none'
+            })
+         
+          
         }
       },
       complete:function(){
-        wx.hideLoading();
+       // wx.hideLoading();
       }
     })
   },

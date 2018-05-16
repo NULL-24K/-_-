@@ -14,7 +14,8 @@
   </view>
 </view> -->
 <view>
-  <defCell wx:for="{{itemArr}}" 
+  <view wx:for="{{itemArr}}">
+   <defCell  
             data-types='{{index}}' 
             imagesrc='{{item.companyImgUrl}}'
             bindtap='pushDetailVC'
@@ -27,4 +28,6 @@
             time='{{item.time}}'
             id="{{index}}"> 
   </defCell>
+  <view class='splyClass'></view>
+  </view>
 </view>
