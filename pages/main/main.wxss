@@ -182,3 +182,21 @@
   background-color: lightgray;
   width: 95%;
 }
+
+.serverphoneBackSty{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phoneSty{
+  text-align: right;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.arrowSty{
+  width: 6px;
+  height: 10px;
+  margin-right: 10pt;
+}

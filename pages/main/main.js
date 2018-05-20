@@ -24,7 +24,8 @@ Page({
     applyState:'立即申请',
     jobId:'',
     companyName:'',
-    administratorId:''
+    administratorId:'',
+    phoneNum:'点击查看HR联系方式'
   },
 
   /**
@@ -137,6 +138,52 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  getServerPhone:function(){
+    var that = this;
+    if (!app.isLogin()) {
+      util.userLogin();
+    } else {
+      if (that.data.phoneNum =='点击查看HR联系方式'){
+        wx.request({
+          url: app.baseUrl + 'jobs/adminPhoneNum',
+          method: 'POST',
+          header: app.header,
+          data: { administratorId: that.data.administratorId},
+          success:function(res){
+            console.log(res);
+            if(res.statusCode == 200){
+              var obj = res.data;
+              console.log(obj);
+              if(obj.code ==0 && obj.data){
+                that.setData({
+                  phoneNum: obj.data.phoneNum
+                })
+              }else{
+                wx.showToast({
+                  title: obj.msg,
+                  icon:'none'
+                })
+              }
+            }else{
+              wx.showToast({
+                title: '网络异常',
+                icon: 'none'
+              })
+            }
+          },
+          complete:function(err){
+
+          }
+          })
+      }else{
+        var that = this;
+        wx.makePhoneCall({
+          phoneNumber: that.data.phoneNum,
+        })
+      }
+    }
   },
 
   interview:function(){

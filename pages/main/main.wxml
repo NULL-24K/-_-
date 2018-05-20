@@ -5,7 +5,7 @@
   <text class='titleSty'>{{jobName}}</text>
   <view class='incomViewBackSty'>
    <text class='incomSty'>{{'¥' + jobIncom}}</text>
-   <text class='isZhaophSty'>招聘会</text>
+   <text class='isZhaophSty'></text>
   </view>
   <view class='yaoqiuSty'>
    <text class='yaoqiuStyone'>{{singerLocation +'|' +minEducation + '|'+ workExperienc}}</text>
@@ -16,6 +16,17 @@
    <text wx:for='{{wellArr}}' class='wellItemSty' wx:key="">{{item}}</text>
   </view>
  </view>
+
+<view class='cellBackSty' bindtap='getServerPhone'>
+  <view class='serverphoneBackSty'>
+   <text class='jobDescribeTitleSty'>咨询电话</text>
+   <view>
+    <text class='phoneSty'>{{phoneNum}}</text>
+   <image src='/pages/images/other/home_button_right.png' class='arrowSty'></image>
+   </view>
+  </view>
+</view>
+
 <!--时间地点  -->
  <view class='cellBackSty'>
   <view class='interViewTimeBackSty'>
