@@ -61,7 +61,7 @@ App({
     openid:null
   },
 
-  baseUrl:'http://193.112.186.75:3000/',//http://localhost:3000/',
+  baseUrl:'http://ahgoldbee.cn/',//http://193.112.186.75:3000/',//http://localhost:3000/',
   errorMsg:'网络异常,请重试',
   header:{token:wx.getStorageSync('AccountToken')},
   /*用户是否登录*/

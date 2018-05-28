@@ -105,8 +105,8 @@ Page({
               alertStr ='您还没有申请任何职位'
               that.setData({
                 itemArr: [],
-                isHidden:false,
-                isShowNotif:true
+                isHidden:true,
+                isShowNotif:false
               })
             }
           }else{

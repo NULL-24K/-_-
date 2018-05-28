@@ -29,12 +29,12 @@
 .incomSty{
   margin-left: 15pt;
   font-size: 16px;
-  color: red;
+  color: #ffcc00;
 }
 
 .isZhaophSty{
   margin-right: 15pt;
-  border: solid 1px red;
+  border: solid 0px red;
   color: red;
   font-size: 14px;
 }
@@ -49,13 +49,13 @@
 .yaoqiuStyone{
   margin-left: 15pt;
   font-size: 15px;
-  color: lightgray;
+  color: #6b6b6b;
 }
 
 .yaoqiuStyTwo{
    margin-left: 15pt;
   font-size: 13px;
-  color: lightgray;
+  color: #6b6b6b;
 }
 
 .wellSty{
@@ -70,7 +70,7 @@
 }
 
 .wellItemSty{
-  color: red;
+  color: #ffcc00;
   margin:5px;
   font-size: 15px;
   border: solid 1px lightgray;
@@ -97,7 +97,7 @@
 .otherTitleSty{
   margin-left: 15pt;
   font-size: 15px;
-  color: lightgray;
+  color: #6b6b6b;
 }
 
 .otherDetailSty{
@@ -116,7 +116,7 @@
 
 .jobDescribeTitleSty{
   margin-left: 15pt;
-  color: #dbb867;
+  color: #ffcc00;
   font-size: 17px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -154,7 +154,7 @@
 
 .shareTitleSty{
   font-size: 13px;
-  color: lightgray;
+  color: #6b6b6b;
   text-align: center;
 }
 
@@ -170,7 +170,7 @@
 .UapplySty{
   width: 80%;
   font-size: 14px;
-  background: red;
+  background: #ffcc00;
   color: white;
   text-align: center;
   line-height: 50px;
@@ -193,6 +193,7 @@
   text-align: right;
   font-size: 14px;
   margin-right: 5px;
+  color: #6b6b6b
 }
 
 .arrowSty{
