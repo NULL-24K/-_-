@@ -14,6 +14,9 @@
   </view>
 </view> -->
 <view>
+<view class='warp' hidden='{{eye}}'>
+    <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun">.</button> 
+</view>
   <view wx:for="{{itemArr}}">
    <defCell  
             data-types='{{index}}' 

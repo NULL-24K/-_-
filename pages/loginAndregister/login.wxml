@@ -8,7 +8,7 @@
           maxlength='11'
           type='number'
           class='inputSty'
-          bindblur='endInput'
+          bindinput='endInput'
             ></input>
     <button disabled='{{disabled}}' class='getMsgClass' bindtap='getMsgFun'>{{getMsgCode}}</button>
   </view>
@@ -18,7 +18,7 @@
    <input placeholder='请输入短信验证码' 
           placeholder-class='inptuPlaceSty' 
           password='true'
-          bindblur='endInputPsd' 
+          bindinput='endInputPsd' 
           class='inputSty'></input>
   </view>
   <button class='loginBtnSty' bindtap='logintap'>登录</button>

@@ -9,6 +9,7 @@ Page({
    */
   data: {
     itemArr: [],
+    eye: true
   },
 
   pushDetailVC:function(index){
@@ -42,7 +43,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getUserInfoFun()
+  },
 
+  getUserInfoFun: function () {
+    var S = this;
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res)
+        　　　　　　　//do anything
+      },
+      fail: S.showPrePage
+    })
+  },
+  showPrePage: function () {
+    this.setData({
+      eye: false
+    })
   },
 
   /**
