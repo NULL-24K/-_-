@@ -31,6 +31,6 @@
             time='{{item.time}}'
             id="{{index}}"> 
   </defCell>
-  <view class='splyClass'></view>
+  <view wx:if='{{index !=itemArr.length -1}}' class='splyClass'></view>
   </view>
 </view>

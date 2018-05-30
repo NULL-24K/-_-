@@ -32,10 +32,17 @@ margin-right: 15pt;
 
 .titleLab{
   font-size: 12pt;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden
 }
 
 .detailLabSty{
   font-size: 9pt;
+  color: #6b6b6b;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden
 }
 
 .detailLabSty_sl{

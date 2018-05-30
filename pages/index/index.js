@@ -113,6 +113,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
+          obj.data[3].companyImgUrl = 'https://' + obj.data[3].companyImgUrl
           if (obj.code == 0) {
             that.setData({
               itemArr: obj.data

@@ -31,6 +31,16 @@ Page({
    */
   onLoad: function (options) {
    var that = this;
+   if (app.globalData.userInfo) {
+     var userinfo = app.globalData.userInfo
+     if (userinfo.avatarUrl) {
+       var newdata = that.data.dataArr;
+       newdata[0][0].detail = userinfo.avatarUrl
+       that.setData({
+         dataArr: newdata
+       })
+     }
+   }
    wx.request({
      url: app.baseUrl + 'users/persionInfo',
      method:'POST',
@@ -44,14 +54,21 @@ Page({
              var newData = that.data.dataArr;
              for (var i = 0; i < newData.length; i++) {
                for (var j = 0; j < newData[i].length; j++) {
-                 newData[i][j].detail = obj.data[i][j];
+                 if(i==0 && j==0){
+                   if (obj.data[i][j] == '/pages/images/other/account_icon_user.png' && app.globalData.userInfo.avatarUrl){
+                     newData[i][j].detail = app.globalData.userInfo.avatarUrl
+                   }else{
+                     newData[i][j].detail = obj.data[i][j];
+                   }
+                 }else{
+                   newData[i][j].detail = obj.data[i][j];
+                 }
                }
              }
              that.setData({
                dataArr: newData
              })
            }
-        
          }else{
 
          }
@@ -118,7 +135,7 @@ Page({
      var row = index%10;
     if (index <20){
       if (row === 0){
-        this.getIcomfunction();
+       // this.getIcomfunction();
       } else if (row === 1){
         
       }else{
