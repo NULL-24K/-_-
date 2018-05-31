@@ -113,7 +113,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
-          obj.data[3].companyImgUrl = 'https://' + obj.data[3].companyImgUrl
+          console.log(obj)
           if (obj.code == 0) {
             that.setData({
               itemArr: obj.data
@@ -130,7 +130,6 @@ Page({
       }
     })
   },
-
 
   userInfo:function(){
     if (app.globalData.userInfo) {

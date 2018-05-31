@@ -94,7 +94,7 @@ Page({
             if (obj.data && obj.data.length > 0) {
               var resArr = []
               for(var i =0;i<obj.data.length;i++){
-                var detailObj = { timeStr: obj.data[i].createdAt, status: obj.data[i].intentionStatus}
+                var detailObj = { timeStr: obj.data[i].updatedAt, status: obj.data[i].intentionStatus}
                 detailObj.detail = that.detailFromStatus(obj.data[i].intentionStatus);
                 detailObj.isSuccess = that.isSuccessTypeFromStatus(obj.data[i].intentionStatus);
                 detailObj.lineCol = (that.isSuccessTypeFromStatus(obj.data[i].intentionStatus) == true)?'green':'red'

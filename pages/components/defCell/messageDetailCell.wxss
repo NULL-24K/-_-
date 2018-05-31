@@ -52,7 +52,7 @@
   text-align: left;
   margin-left: 5px;
   font-size: 17px;
-  color: red;
+  color: #ffcc00;
 }
 
 .detailTextSty{
