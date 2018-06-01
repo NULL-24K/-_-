@@ -127,7 +127,14 @@
   color: black;
   margin-left: 15pt;
   margin-right: 15pt;
-  margin-bottom: 50pt;
+  margin-bottom: 10pt;
+}
+.ComDescribeSty{
+  font-size: 14px;
+  color: black;
+  margin-left: 15pt;
+  margin-right: 15pt;
+  margin-bottom: 60pt;
 }
 
 .otherViewClass{

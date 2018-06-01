@@ -24,6 +24,7 @@ Page({
     applyState:'立即申请',
     jobId:'',
     companyName:'',
+    companyDescribe:'',
     administratorId:'',
     phoneNum:'点击查看HR联系方式'
   },
@@ -62,6 +63,7 @@ Page({
                applyState: obj.data.applyState,
                companyName: obj.data.companyName,
                administratorId: obj.data.administratorId,
+               companyDescribe: obj.data.companyDescribe,
                jobId: obj.data.jobid
              })
            } else {

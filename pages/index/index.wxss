@@ -45,7 +45,7 @@ button::after{
     color: transparent;
     background:transparent no-repeat center center;
     background-size: cover;   
-    background-image: url("http://pic29.photophoto.cn/20131204/0034034499213463_b.jpg");
+    /* background-image: url("http://pic29.photophoto.cn/20131204/0034034499213463_b.jpg"); */
 }
 
 .splyClass{

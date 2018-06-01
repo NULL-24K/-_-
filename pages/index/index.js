@@ -30,6 +30,8 @@ Page({
     if(shareId){
       wx.setStorageSync("shareId", shareId);
     }
+
+    this.getUserInfoFun()
   },
 
   /**
@@ -43,17 +45,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getUserInfoFun()
+    
   },
 
   getUserInfoFun: function () {
-    var S = this;
+    var that = this;
     wx.getUserInfo({
       success: function (res) {
-        console.log(res)
-        　　　　　　　//do anything
+        app.globalData.userInfo = res.userInfo;
+        that.setData({
+          eye: true
+        })
       },
-      fail: S.showPrePage
+      fail: that.showPrePage
     })
   },
   showPrePage: function () {
@@ -109,7 +113,7 @@ Page({
     wx.request({
       url: app.baseUrl + 'jobs/jobList',
       method: 'POST',
-      data: { type: 0 },
+      data: { type: 0, adminId: wx.getStorageSync('shareId')},
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;

@@ -44,4 +44,7 @@
   margin-right: 5pt;
   color: lightgray;
   line-height: 20pt;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden
 }

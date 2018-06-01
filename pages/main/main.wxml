@@ -49,7 +49,12 @@
   <text class='jobDescribeTitleSty'>工作职责</text>
   <text class='jobDescribeSty'>{{jobDescribe}}</text>
  </view>
-
+<!--企业描述  -->
+ <view style='width:100%;height:10px'></view>
+ <view class='jobDescribeBackSty'>
+  <text class='jobDescribeTitleSty'>企业简介</text>
+  <text class='ComDescribeSty'>{{companyDescribe}}</text>
+ </view>
  <view class='otherViewClass'>
   <view class='shareSty'>
    <image class='shareImgSty'></image>
