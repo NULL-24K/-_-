@@ -13,7 +13,8 @@ Page({
           { title: '学历', pickerDataArr: ['小学', '初中', '高中', '大专', '本科', '硕士'], pickerMode: 'selector' }],
     
     valueArr:['','','','',''],
-    educationId:''
+    educationId:'',
+    subMitIsEnable:true
   },
 
 
@@ -53,6 +54,9 @@ Page({
     // wx.showLoading({
     //   title: '加载中...',
     // })
+    that.setData({
+      subMitIsEnable:false
+    })
     wx.request({
       url: app.baseUrl +'users/education',
       method:'POST',
@@ -102,6 +106,9 @@ Page({
       },
       complete:function(){
       //  wx.hideLoading()
+        that.setData({
+          subMitIsEnable: true
+        })
       }
     })
   },
@@ -185,6 +192,9 @@ Page({
  
   submitData:function(){
     var that = this;
+    if (!that.data.subMitIsEnable) {
+      return;
+    }
     var params = {
       startTime:that.data.valueArr[0],
       endTime: that.data.valueArr[1],

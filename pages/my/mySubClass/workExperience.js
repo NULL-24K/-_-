@@ -15,7 +15,8 @@ Page({
    valueArr:['','','',''],
    inputTextNum:0,
    inputValue:'',
-   jobID:null
+   jobID:null,
+   subMitIsEnable:true
   },
 
   startDataArr:function(){
@@ -55,6 +56,9 @@ Page({
     //   title: '加载中...',
     //   icon:'none'
     // })
+    that.setData({
+      subMitIsEnable: false
+    })
     wx.request({
       url: app.baseUrl + 'users/workExperience',
       method:'POST',
@@ -108,6 +112,9 @@ Page({
         }
       },
       complete:function(){
+        that.setData({
+          subMitIsEnable: false
+        })
        // wx.hideLoading();
       }
     })
@@ -203,6 +210,12 @@ Page({
 
   submitData:function(){
     var that = this;
+    
+    if (!that.data.subMitIsEnable){
+      return;
+    }
+ 
+
     var alertStr = '';
     var stratTime = this.data.valueArr[2];
     var endTime = this.data.valueArr[3];
