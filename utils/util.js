@@ -33,7 +33,7 @@ const formatIsTrue = (formatType,str)=>{
     var reg = /^[0-9]{8}$/;   /*定义验证表达式*/
     return reg.test(str);     /*进行验证*/
   } else if (formatType == 3) {
-    var reg = /^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/;
+    var reg = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
     return reg.test(str);
   } else if (formatType == 4) {
     var reg = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
@@ -46,3 +46,4 @@ module.exports = {
   userLogin: userLogin,
   formatIsTrue: formatIsTrue
 }
+ 

@@ -9,34 +9,32 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var that = this;
-        wx.request({
-          url: this.baseUrl +'account/weChatLogin',
-          data: {code:res.code},
-          method: 'POST',
-          success: function (result) {
-            console.log(result)
-            if (result.data.code == 0 && result.data.data){
-              that.weChatInfo = result.data.data;
-              if (result.data.data.token){//如果已经使用手机号码注册 此处直接登录
-                wx.setStorageSync("AccountToken", result.data.data.token);
-              }
-              that.header={token: wx.getStorageSync('AccountToken') }
-            }
-          },
-          complete:function(){
+        // var that = this;
+        // wx.request({
+        //   url: this.baseUrl +'account/weChatLogin',
+        //   data: {code:res.code},
+        //   method: 'POST',
+        //   success: function (result) {
+        //     console.log(result)
+        //     if (result.data.code == 0 && result.data.data){
+        //       that.weChatInfo = result.data.data;
+        //       if (result.data.data.token){//如果已经使用手机号码注册 此处直接登录
+        //         wx.setStorageSync("AccountToken", result.data.data.token);
+        //       }
+        //       that.header={token: wx.getStorageSync('AccountToken') }
+        //     }
+        //   },
+        //   complete:function(){
 
-          }
-        })
+        //   }
+        // })
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
         if (res.authSetting) {
-          console.log('哈哈')
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -64,7 +62,7 @@ App({
     openid:null
   },
 
-  baseUrl: 'http://ahgoldbee.cn/',//'http://193.112.186.75:3000/',//http://localhost:3000/',
+  baseUrl: 'https://ahgoldbee.cn/',//'http://193.112.186.75:3000/',//http://localhost:3000/',
   errorMsg:'网络异常,请重试',
   header:{token:wx.getStorageSync('AccountToken')},
   /*用户是否登录*/
