@@ -15,11 +15,11 @@ Page({
         { title: '性别', detail: '', placehoderStr: '选择您的性别' }],
       [{ title: '手机号码', detail: '', placehoderStr: '请填写您的联系方式' }, 
         { title: '邮箱', detail: '', placehoderStr: '请输入您的有效邮箱' }],
-      [{ title: '出生日期', detail: '', placehoderStr: '' },
-        { title: '学历', detail: '', placehoderStr: '选择您的学历' },
-        { title: '毕业时间', detail: '', placehoderStr: '' }, 
-        { title: '工作年限', detail: '', placehoderStr: '' }, 
-        { title: '现居地址', detail: '', placehoderStr: ''}]
+      [{ title: '出生日期', detail: '', placehoderStr: '',value:'1995-01-09' },
+        { title: '学历', detail: '', placehoderStr: '选择您的学历',value:'4' },
+        { title: '毕业时间', detail: '', placehoderStr: '',value:'2015-07-01' }, 
+        { title: '工作年限', detail: '', placehoderStr: '' ,value:'1~3年'}, 
+        { title: '现居地址', detail: '', placehoderStr: '',value:['安徽省','合肥市','蜀山区']}]
     ],
     sexArray: ['男', '女'],
     diplomaArr:['小学','初中','高中','大专','本科','硕士'],

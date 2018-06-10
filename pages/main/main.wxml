@@ -9,7 +9,11 @@
   </view>
   <view class='yaoqiuSty'>
    <text class='yaoqiuStyone'>{{singerLocation +'|' +minEducation + '|'+ workExperienc}}</text>
-   <text class='yaoqiuStyTwo'>{{'该职位已有'+applyNum+'人申请'}}</text>
+   <view class='yaoqiuStyTwo'>
+    <text style='font-size:13px'>该职位已有</text>
+    <text style='color:#ffcc00;font-size:16px'>{{applyNum}}</text>
+    <text style='font-size:13px'>人申请</text>
+   </view>
   </view>
   <view class='shortLineSty'></view>
   <view class='wellSty'>

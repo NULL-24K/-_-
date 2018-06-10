@@ -9,8 +9,8 @@ Page({
    styData:[
      {title:'公司',placehoderStr:'必填',pickDataArr:[]},
      { title: '职位', placehoderStr: '必填', pickDataArr: [] },
-     { title: '开始时间', placehoderStr: '必选', pickDataArr:[] },
-     { title: '结束时间', placehoderStr: '必选', pickDataArr: [] }
+     { title: '开始时间', placehoderStr: '必选', pickDataArr: [], value: ['35', '6'] },
+     { title: '结束时间', placehoderStr: '必选', pickDataArr: [], value: ['35', '6'] }
    ],
    valueArr:['','','',''],
    inputTextNum:0,

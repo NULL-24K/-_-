@@ -12,7 +12,10 @@
       </view>
       <view class='rightSty'>
        <text class='detailLabSty_sl' style=''>{{salary}}</text>
-       <text class='detailLabSty'>{{time}}</text>
+       <view>
+        <text class='detailLabSty' style='color:#ffcc00;font-size: 16px'>{{applyNum}}</text>
+        <text class='detailLabSty'>人申请</text>
+       </view> 
       </view>
     </view>
   </view>

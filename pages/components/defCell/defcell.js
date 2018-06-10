@@ -32,9 +32,9 @@ Component({
       type: String,
       value: '3万-5万'
     },
-    time: {
+    applyNum: {
       type: String,
-      value: '08月08日'
+      value: '888人申请'
     },
 
   },

@@ -3,7 +3,7 @@
 
 <view class='backSty'>
  <view wx:for="{{defDataArr}}">
-  <picker wx:if="{{index !=2 && index != 3}}" mode="{{item.pickerMode}}" range='{{item.pickerDataArr}}' bindchange="bindPicker" id='{{index}}' wx:key="{{index}}">
+  <picker wx:if="{{index !=2 && index != 3}}" mode="{{item.pickerMode}}" range='{{item.pickerDataArr}}' bindchange="bindPicker" id='{{index}}' wx:key="{{index}}"  value="{{item.value}}">
    <userInfoCell title="{{item.title}}"
                 detail="{{valueArr[index]}}"
                 placeholderStr="必选">

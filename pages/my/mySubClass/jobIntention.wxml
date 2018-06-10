@@ -1,6 +1,6 @@
 <!--pages/my/mySubClass/jobIntention.wxml-->
 <view class='backSty'>
-    <picker wx:for="{{styData}}" mode="{{item.pickMode}}" bindchange="bindPicker" range="{{item.pickValueArr}}" wx:key='{{index}}' id="{{index}}">
+    <picker wx:for="{{styData}}" mode="{{item.pickMode}}" bindchange="bindPicker" range="{{item.pickValueArr}}" wx:key='{{index}}' id="{{index}}" value='{{item.value}}'>
        <userInfoCell  title='{{item.title}}'
                       detail='{{valueArr[index]}}'
                       placeholderStr='{{item.placehoderStr}}'

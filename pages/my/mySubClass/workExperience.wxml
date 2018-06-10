@@ -11,7 +11,7 @@
                   isDisabled="{{false}}"
                   bindendInput='onEndInput'>
   </userInfoCell>
-   <picker wx:else mode='multiSelector' bindchange="bindPicker" range="{{item.pickDataArr}}" id="{{index}}">
+   <picker wx:else mode='multiSelector' bindchange="bindPicker" range="{{item.pickDataArr}}" id="{{index}}" value='{{item.value}}'>
     <userInfoCell title='{{item.title}}'
                   placeholderStr="{{item.placehoderStr}}"
                   detail="{{valueArr[index]}}"

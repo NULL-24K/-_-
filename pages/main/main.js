@@ -165,8 +165,23 @@ Page({
               }else{
                 wx.showToast({
                   title: obj.msg,
-                  icon:'none'
+                  icon: 'none'
                 })
+                setTimeout(()=>{
+                  if(obj.code ==-2){//未完善基本信息
+                    wx.navigateTo({
+                      url: '../my/mySubClass/userInfoVC',
+                    })
+                  } else if (obj.code == -3) {//未完善教育信息
+                    wx.navigateTo({
+                      url: '../my/mySubClass/education',
+                    })
+                  } else if (obj.code == -4) {//未完善求职意向
+                    wx.navigateTo({
+                      url: '../my/mySubClass/jobIntention',
+                    })
+                  }
+                },1500)
               }
             }else{
               wx.showToast({
@@ -231,9 +246,23 @@ Page({
               }else{
                 wx.showToast({
                   title: obj.msg,
-                  icon:'none',
-                  duration:2000
+                  icon: 'none'
                 })
+                setTimeout(() => {
+                  if (obj.code == -2) {//未完善基本信息
+                    wx.navigateTo({
+                      url: '../my/mySubClass/userInfoVC',
+                    })
+                  } else if (obj.code == -3) {//未完善教育信息
+                    wx.navigateTo({
+                      url: '../my/mySubClass/education',
+                    })
+                  } else if (obj.code == -4) {//未完善求职意向
+                    wx.navigateTo({
+                      url: '../my/mySubClass/jobIntention',
+                    })
+                  }
+                }, 1500)
               }
             }else{
               wx.showToast({

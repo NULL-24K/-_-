@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    defDataArr: [{ title: '开始时间', pickerDataArr: [], pickerMode:'multiSelector'},
-      { title: '结束时间', pickerDataArr: [], pickerMode: 'multiSelector' },
+    defDataArr: [{ title: '开始时间', pickerDataArr: [], pickerMode: 'multiSelector', value: ['35', '6']},
+      { title: '结束时间', pickerDataArr: [], pickerMode: 'multiSelector',value:['35','6'] },
           { title: '学校', pickerDataArr: [], pickerMode: '' },
           { title: '专业', pickerDataArr: [], pickerMode: '' },
           { title: '学历', pickerDataArr: ['小学', '初中', '高中', '大专', '本科', '硕士'], pickerMode: 'selector' }],
