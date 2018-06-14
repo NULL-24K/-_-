@@ -135,7 +135,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
-          console.log(obj)
+          //console.log(obj)
           if (obj.code == 0) {
             that.setData({
               itemArr: obj.data
