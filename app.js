@@ -14,7 +14,7 @@ App({
         // wx.request({
         //   url: this.baseUrl +'account/weChatLogin',
         //   data: {code:res.code},
-        //   method: 'POST',
+        //   method: 'POST',    
         //   success: function (result) {
         //     console.log(result)
         //     if (result.data.code == 0 && result.data.data){

@@ -1,5 +1,8 @@
 <!--pages/my/mySubClass/helpAndSetting.wxml-->
 <view class='cellBackSty' bindtap='pushHelp'>
+
+     <web-view src='https://leaseplatfrom-uat.mbcloud.com/dist/index/index.html'></web-view>  
+   
     <!-- 预览简历 -->
     <view class='lineStyTop'></view>
     <mycell title='客服电话'
