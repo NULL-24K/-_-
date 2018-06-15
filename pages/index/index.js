@@ -56,22 +56,28 @@ Page({
         that.setData({
           eye: true
         })
-        wx.request({
-          url: app.baseUrl + 'account/weChatLogin',
-          data: { code: res.code },
-          method: 'POST',
-          success: function (result) {
-            console.log(result)
-            if (result.data.code == 0 && result.data.data) {
-              that.weChatInfo = result.data.data;
-              if (result.data.data.token) {//如果已经使用手机号码注册 此处直接登录
-                wx.setStorageSync("AccountToken", result.data.data.token);
-              }
-              that.header = { token: wx.getStorageSync('AccountToken') }
-            }
-          },
-          complete: function () {
+        wx.login({
+          success: _res => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            
+            wx.request({
+              url: app.baseUrl +'account/weChatLogin',
+              data: { code: _res.code},
+              method: 'POST',    
+              success: function (result) {
+                console.log(result)
+                if (result.data.code == 0 && result.data.data){
+                  app.weChatInfo = result.data.data;
+                  if (result.data.data.token){//如果已经使用手机号码注册 此处直接登录
+                    wx.setStorageSync("AccountToken", result.data.data.token);
+                  }
+                  app.header={token: wx.getStorageSync('AccountToken') }
+                }//oiNIA5aC5uesE09NjZivIkhWG65U
+              },
+              complete:function(){
 
+              }
+            })
           }
         })
       },
