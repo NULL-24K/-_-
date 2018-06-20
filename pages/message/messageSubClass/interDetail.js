@@ -72,7 +72,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var shareId = wx.getStorageSync("shareId");
+    return {
+      title: '上蜜蜂直聘,发现更多机会',
+      path: '/pages/index/index?shareId=' + shareId,
+      success: function (res) {
+        console.log(res)
+      }
+    }
   },
 
   getNetData:function(){

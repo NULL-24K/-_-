@@ -27,10 +27,13 @@ Page({
     this.getNetData();
     var shareId = options.shareId;
     console.log(shareId);
+    
     if(shareId){
-      wx.setStorageSync("shareId", shareId);
+      var share_id = wx.getStorageSync("shareId");
+      if(share_id != 'goldbee'){
+        wx.setStorageSync("shareId", shareId);
+      }
     }
-
     this.getUserInfoFun()
   },
 
@@ -126,7 +129,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var shareId = wx.getStorageSync("shareId");
+    return {
+      title: '上蜜蜂直聘,发现更多机会',
+      path: '/pages/index/index?shareId=' + shareId,
+      success: function (res) {
+        console.log(res)
+      }
+    }
   },
 
   getNetData:function(){

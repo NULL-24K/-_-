@@ -18,6 +18,7 @@
    <input placeholder='请输入短信验证码' 
           placeholder-class='inptuPlaceSty' 
           password='true'
+          type='number'
           bindinput='endInputPsd' 
           class='inputSty'></input>
   </view>

@@ -83,7 +83,7 @@ App({
     }
     if (that.weChatInfo.openid) {
       obj.openid = that.weChatInfo.openid
-    }
+    }2
     if (wx.getStorageSync('shareId')){
       obj.shareId = wx.getStorageSync('shareId');
     }
@@ -120,6 +120,18 @@ App({
         wx.hideLoading();
       }
     })
+  },
+
+
+  shareInfo:function(){
+    var shareId = wx.getStorageSync("shareId");
+    return {
+      title: '小程序测试转发',
+      path: '/pages/index/index?shareId=' + shareId,
+      success: function (res) {
+        console.log(res)
+      }
+    }
   }
 //ffc4906e28d8eee49980349b61c65e70
   // /**
