@@ -45,7 +45,7 @@
   width: 100%;
   margin-left: 15pt;
   margin-right: 10%;
-  margin-top: 1px;
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
