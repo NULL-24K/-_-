@@ -153,7 +153,13 @@ Page({
     var that = this;
     if (!app.isLogin()) {
       util.userLogin();
-    } else {
+    } else if (that.data.applyState !='已申请'){
+      wx.showToast({
+        title: '投递简历,更容易获得工作机会哦~',
+        icon:'none',
+        duration:2000
+      })
+    }else {
       if (that.data.phoneNum =='点击查看HR联系方式'){
         wx.request({
           url: app.baseUrl + 'jobs/adminPhoneNum',
@@ -175,7 +181,7 @@ Page({
                   icon: 'none'
                 })
                 setTimeout(()=>{
-                  if(obj.code ==-2){//未完善基本信息
+                  if (obj.code == -2 || obj.code == -1){//未完善基本信息
                     wx.navigateTo({
                       url: '../my/mySubClass/userInfoVC',
                     })
@@ -256,7 +262,7 @@ Page({
                   icon: 'none'
                 })
                 setTimeout(() => {
-                  if (obj.code == -2) {//未完善基本信息
+                  if (obj.code == -2 ||obj.code == -1) {//未完善基本信息
                     wx.navigateTo({
                       url: '../my/mySubClass/userInfoVC',
                     })
