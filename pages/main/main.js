@@ -246,15 +246,16 @@ Page({
               var obj = res.data;
               if(obj.code == 0){
                 wx.showToast({
-                  title: '申请成功,你可以在消息中心查看进度',
-                  icon:'none'
+                  title: obj.msg,
+                  icon:'none',
+                  duration:2500
                 })
                 setTimeout(
                   ()=>{
                     wx.navigateBack({
                       
                     })
-                  },2000
+                  },3000
                 )
               }else{
                 wx.showToast({
