@@ -61,7 +61,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var shareId = wx.getStorageSync("shareId");
+    var shareId = app.shareOrAdmin_ID();
     return {
       title: '上蜜蜂直聘,发现更多机会',
       path: '/pages/index/index?shareId=' + shareId,

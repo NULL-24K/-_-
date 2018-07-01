@@ -46,6 +46,7 @@ Page({
        success:function(res){
          if(res.statusCode == 200){
            var obj = res.data;
+           console.log(obj.code);
            if(obj.code == 0 && obj.data){
             // console.log(obj.data)
              that.setData({
@@ -139,7 +140,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var shareId = wx.getStorageSync("shareId");
+    var shareId = app.shareOrAdmin_ID();
     return {
       title: '上蜜蜂直聘,发现更多机会',
       path: '/pages/index/index?shareId=' + shareId,
@@ -147,6 +148,10 @@ Page({
         console.log(res)
       }
     }
+  },
+
+  shareFun:function(){
+    this.onShareAppMessage;
   },
 
   getServerPhone:function(){
@@ -293,3 +298,4 @@ Page({
     }
   }
 })
+

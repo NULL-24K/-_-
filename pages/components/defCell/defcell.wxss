@@ -27,8 +27,8 @@
 .image{
 width: 36pt;
 height: 36pt;
-margin-left: 15pt;
-margin-right: 15pt;
+margin-left: 10pt;
+margin-right: 10pt;
 }
 
 .titleLab{

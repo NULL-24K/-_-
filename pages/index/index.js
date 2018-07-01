@@ -28,11 +28,8 @@ Page({
     var shareId = options.shareId;
     console.log(shareId);
     
-    if(shareId){
-      var share_id = wx.getStorageSync("shareId");
-      if(share_id != 'goldbee'){
-        wx.setStorageSync("shareId", shareId);
-      }
+    if(shareId && shareId.length >0){
+      wx.setStorageSync("shareId", shareId);
     }
     this.getUserInfoFun()
   },
@@ -129,7 +126,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var shareId = wx.getStorageSync("shareId");
+    var shareId = app.shareOrAdmin_ID();
     return {
       title: '上蜜蜂直聘,发现更多机会',
       path: '/pages/index/index?shareId=' + shareId,
@@ -147,7 +144,7 @@ Page({
     wx.request({
       url: app.baseUrl + 'jobs/jobList',
       method: 'POST',
-      data: { type: 0, adminId: wx.getStorageSync('shareId')},
+      data: { type: 0, adminId: app.shareOrAdmin_ID()},
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
@@ -156,7 +153,7 @@ Page({
             that.setData({
               itemArr: obj.data
             })
-          } else { }
+          } else {}
         } else {
           wx.showToast({
             title: '网络异常,请重试',
