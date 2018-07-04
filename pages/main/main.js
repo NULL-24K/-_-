@@ -46,7 +46,7 @@ Page({
        success:function(res){
          if(res.statusCode == 200){
            var obj = res.data;
-           console.log(obj.code);
+           console.log(obj);
            if(obj.code == 0 && obj.data){
             // console.log(obj.data)
              that.setData({
