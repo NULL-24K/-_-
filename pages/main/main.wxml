@@ -34,7 +34,7 @@
 <!--时间地点  -->
  <view class='cellBackSty'>
   <view class='interViewTimeBackSty'>
-   <text class='otherTitleSty'>面试时间:</text>
+   <text class='otherTitleSty'>截止日期:</text>
    <text class='otherDetailSty' style='color:#d9974a'>{{interviewTime}}</text>
   </view>
   <view class='shortLineSty'></view>
