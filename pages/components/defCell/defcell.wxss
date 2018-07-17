@@ -24,11 +24,18 @@
 }
 
 
-.image{
-width: 36pt;
-height: 36pt;
-margin-left: 10pt;
-margin-right: 10pt;
+.images{
+ width: 36pt;
+ height: 36pt;
+ margin-left: 10pt;
+ margin-right: 10pt; 
+}
+.imageBackSty{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 56pt;
+  height: 65pt;
 }
 
 .titleLab{
@@ -49,6 +56,9 @@ margin-right: 10pt;
 .detailLabSty_sl{
   font-size: 10pt;
   color: #ffcc00;
+  /* white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden */
 }
 
 .lineSty{
