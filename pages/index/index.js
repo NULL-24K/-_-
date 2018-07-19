@@ -70,6 +70,8 @@ Page({
                   app.weChatInfo = result.data.data;
                   if (result.data.data.token){//如果已经使用手机号码注册 此处直接登录
                     wx.setStorageSync("AccountToken", result.data.data.token);
+                    //这里存储管理员信息
+                    wx.setStorageSync('administorId', result.data.data.shareId);
                   }
                   app.header={token: wx.getStorageSync('AccountToken') }
                 }//oiNIA5aC5uesE09NjZivIkhWG65U
