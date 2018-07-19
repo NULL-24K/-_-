@@ -4,7 +4,9 @@
 <view>
   <view>
     <view class='backSty'>
-      <image class='image' src='{{imagesrc}}'></image>
+      <view class='imageBackSty'>
+        <image class='images' src='{{imagesrc}}'></image>
+      </view>
       <view class='titleBackSty'>
        <text class='titleLab'>{{title}}</text>
        <text class='detailLabSty'>{{detailTitle}}</text>
