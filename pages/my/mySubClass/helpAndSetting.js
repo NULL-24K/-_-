@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNum:'18767090623',
-    url:'https://leaseplatfrom-sit.mbcloud.com/dist/index/index.html'
+    phoneNum:'18767090623'
   },
 
   /**

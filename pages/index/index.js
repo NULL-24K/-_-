@@ -24,14 +24,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNetData();
     var shareId = options.shareId;
     console.log(shareId);
-    
+    var that = this;
     if(shareId && shareId.length >0){
       wx.setStorageSync("shareId", shareId);
     }
     this.getUserInfoFun()
+    setTimeout(function(){
+      that.getNetData();
+    },100);
+    
   },
 
   /**
@@ -45,7 +48,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.getNetData();
+    // var that = this;
+    // if (app.isLogin() && !this.data.isReloadData) {
+    //   this.setData({
+    //     isReloadData:true
+    //   })
+    //   setTimeout(function () {
+    //     if (that.data.isReloadData) {
+    //       that.getNetData();
+    //     }
+    //   }, 100)
+    // }
   },
 
   getUserInfoFun: function () {
