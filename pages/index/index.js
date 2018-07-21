@@ -24,7 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNetData();
+    var that = this;
     var shareId = options.shareId;
     console.log(shareId);
     
@@ -32,6 +32,9 @@ Page({
       wx.setStorageSync("shareId", shareId);
     }
     this.getUserInfoFun()
+    setTimeout(function () {
+      that.getNetData();
+    }, 100)
   },
 
   /**
