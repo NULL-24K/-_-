@@ -59,11 +59,15 @@
   <text class='jobDescribeTitleSty'>企业简介</text>
   <text class='ComDescribeSty'>{{companyDescribe}}</text>
  </view>
+
+ <form report-submit='true'>
  <view class='otherViewClass'>
-  <button class='shareSty' open-type="share">
+  <button class='shareSty' open-type="share" >
    <image class='shareImgSty'></image>
    <text class='shareTitleSty'>分享</text>
   </button>
-  <view class="{{applyState == '已申请'?'applySty':'UapplySty'}}" bindtap='interview'>{{applyState}}</view>
+  <view  class="{{applyState == '已申请'?'applySty':'UapplySty'}}" bindtap='interview'>{{applyState}}</view>
  </view>
+ </form>
+ 
 </view>

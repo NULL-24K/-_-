@@ -34,7 +34,6 @@ Page({
     setTimeout(function(){
       that.getNetData();
     },100);
-    
   },
 
   /**
@@ -88,6 +87,9 @@ Page({
                     wx.setStorageSync('administorId', result.data.data.shareId);
                   }
                   app.header={token: wx.getStorageSync('AccountToken') }
+                  setTimeout(function () {
+                    that.getNetData();
+                  }, 100);
                 }//oiNIA5aC5uesE09NjZivIkhWG65U
               },
               complete:function(){
