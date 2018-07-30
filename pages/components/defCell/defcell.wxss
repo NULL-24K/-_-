@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content:space-between;
   align-items: flex-end;
-  height: 40pt;  
+  /* height: 40pt;   */
   margin-right: 5px;
 }
 
@@ -29,6 +29,9 @@
  height: 36pt;
  margin-left: 10pt;
  margin-right: 10pt; 
+ border-style:dashed ;
+ border-width: 2px;
+ border-color: #ffcc00;
 }
 .imageBackSty{
   display: flex;

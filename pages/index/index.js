@@ -9,7 +9,8 @@ Page({
    */
   data: {
     itemArr: [],
-    eye: true
+    eye: true,
+    locationCity:'合肥'
   },
 
   pushDetailVC:function(index){
@@ -34,7 +35,12 @@ Page({
     setTimeout(function(){
       that.getNetData();
     },100);
+
+
+    this.getLocationFun();
+
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -59,6 +65,34 @@ Page({
     //     }
     //   }, 100)
     // }
+  },
+
+  getLocationFun:function(){
+     var locationInfo = wx.getStorageSync('locationKey_mfzp');
+     var that = this;
+     if (locationInfo) {
+       
+     }else{
+       wx.getLocation({
+         success: function(res) {
+          
+           wx.request({
+             url: app.baseUrl + 'jobs/LocationCityInfo',
+             method:'POST',
+             data: { 'latitude': res.latitude,'longitude':res.longitude},
+             success:function(successRes){
+               
+               that.setData({
+                 locationCity:successRes.data.data
+               })
+             },
+             complete: function () {
+
+             }
+           })
+         },
+       })
+     }
   },
 
   getUserInfoFun: function () {
