@@ -60,14 +60,13 @@
   <text class='ComDescribeSty'>{{companyDescribe}}</text>
  </view>
 
- <form report-submit='true'>
+ <form  bindsubmit="formSubmit" report-submit="true">
  <view class='otherViewClass'>
   <button class='shareSty' open-type="share" >
    <image class='shareImgSty'></image>
-   <text class='shareTitleSty'>分享</text>
+   <text class='shareTitleSty' >分享</text>
   </button>
-  <view  class="{{applyState == '已申请'?'applySty':'UapplySty'}}" bindtap='interview'>{{applyState}}</view>
+  <button  formType="submit" class="{{applyState == '已申请'?'applySty':'UapplySty'}}" name='chubin' >{{applyState}}</button>
  </view>
  </form>
- 
 </view>

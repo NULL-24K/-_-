@@ -76,7 +76,7 @@ Page({
        wx.getLocation({
          success: function(res) {
           
-           wx.request({
+           wx.request({//https://ahgoldbee.cn/jobs/LocationCityInfo
              url: app.baseUrl + 'jobs/LocationCityInfo',
              method:'POST',
              data: { 'latitude': res.latitude,'longitude':res.longitude},
