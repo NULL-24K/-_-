@@ -55,12 +55,15 @@ button::after{
 }
 
 .locationbackSty{
+  display: flex;
+  align-items: center;
   height: 20px;
   background: green;
 }
 
 .locationImgSty{
-
+  width: 14px;
+  height: 15px;
 }
 
 .locationTitleSty{

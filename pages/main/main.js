@@ -222,19 +222,7 @@ Page({
   },
   
   formSubmit:function(e){
-    console.log('form发生了submit事件，携带数据为：', e.detail.formId)
-    wx.request({
-      url: app.baseUrl + 'apply/applyJob',
-      method: 'POST',
-      header: app.header,
-      data: { 'formId': e.detail.formId},
-      success:function(success){
-        
-      }
-    })
-    
-    
-
+    console.log('form发生了submit事件，携带数据为：', e.detail.formId)  
     var that = this;
     if (!app.isLogin()){
       util.userLogin();
@@ -253,6 +241,7 @@ Page({
           companyName: that.data.companyName,
           jobName: that.data.jobName,
           administratorId: that.data.administratorId,
+          formId: e.detail.formId
         }
         wx.request({
           url: app.baseUrl +'apply/applyJob',
