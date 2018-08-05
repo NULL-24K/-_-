@@ -53,3 +53,21 @@ button::after{
   height: 6px;
   background-color: #e4e4e4
 }
+
+.locationbackSty{
+  display: flex;
+  align-items: center;
+  height: 20px;
+  background: green;
+}
+
+.locationImgSty{
+  width: 14px;
+  height: 15px;
+}
+
+.locationTitleSty{
+  font-size: 14px;
+  color: red;
+  margin-left: 15px;
+}

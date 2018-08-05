@@ -9,7 +9,8 @@ Page({
    */
   data: {
     itemArr: [],
-    eye: true
+    eye: true,
+    locationCity:'合肥'
   },
 
   pushDetailVC:function(index){
@@ -34,8 +35,12 @@ Page({
     setTimeout(function(){
       that.getNetData();
     },100);
-    
+
+
+    this.getLocationFun();
+
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -60,6 +65,34 @@ Page({
     //     }
     //   }, 100)
     // }
+  },
+
+  getLocationFun:function(){
+     var locationInfo = wx.getStorageSync('locationKey_mfzp');
+     var that = this;
+     if (locationInfo) {
+       
+     }else{
+       wx.getLocation({
+         success: function(res) {
+          
+           wx.request({//https://ahgoldbee.cn/jobs/LocationCityInfo
+             url: app.baseUrl + 'jobs/LocationCityInfo',
+             method:'POST',
+             data: { 'latitude': res.latitude,'longitude':res.longitude},
+             success:function(successRes){
+               
+               that.setData({
+                 locationCity:successRes.data.data
+               })
+             },
+             complete: function () {
+
+             }
+           })
+         },
+       })
+     }
   },
 
   getUserInfoFun: function () {
@@ -88,6 +121,9 @@ Page({
                     wx.setStorageSync('administorId', result.data.data.shareId);
                   }
                   app.header={token: wx.getStorageSync('AccountToken') }
+                  setTimeout(function () {
+                    that.getNetData();
+                  }, 100);
                 }//oiNIA5aC5uesE09NjZivIkhWG65U
               },
               complete:function(){

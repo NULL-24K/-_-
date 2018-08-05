@@ -17,6 +17,10 @@
 <view class='warp' hidden='{{eye}}'>
     <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun">点击登录</button> 
 </view>
+  <view class='locationbackSty'>
+    <image class='locationImgSty' src=''></image>
+    <text class='locationTitleSty'>{{locationCity}}</text>
+  </view>
   <view wx:for="{{itemArr}}">
    <defCell  
             data-types='{{index}}' 

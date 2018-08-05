@@ -211,3 +211,12 @@
   height: 10px;
   margin-right: 10pt;
 }
+
+button::after{
+  border:none;
+  border-radius: 0;
+}
+
+button{
+    border-radius: 0;
+}
