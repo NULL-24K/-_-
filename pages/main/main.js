@@ -38,6 +38,7 @@ Page({
     //  wx.showLoading({
     //    title: '加载中...',
     //  })
+    //console.log(options);
      wx.request({
        url: app.baseUrl +'jobs/jobDetail',
        method:'POST',
