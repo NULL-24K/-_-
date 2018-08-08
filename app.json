@@ -12,7 +12,8 @@
     "pages/my/mySubClass/education",
     "pages/my/mySubClass/workList",
     "pages/message/messageSubClass/interDetail",
-    "pages/my/mySubClass/helpAndSetting"
+    "pages/my/mySubClass/helpAndSetting",
+    "pages/main/location"
   ],
   "window": {
     "backgroundTextStyle": "light",

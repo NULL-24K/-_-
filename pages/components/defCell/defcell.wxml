@@ -13,10 +13,16 @@
        <text class='detailLabSty'>{{location+'|'+diploma+'|'+years}}</text>
       </view>
       <view class='rightSty'>
-       <text class='detailLabSty_sl' style=''>{{salary}}</text>
+        <view wx:if='{{false}}' class='tipClass'>
+         <image class='tipImgSty'></image>
+         <text class='tipTitleSty'>报名中</text>
+        </view>
        <view>
-        <text class='detailLabSty' style='color:#ffcc00;font-size: 16px'>{{applyNum}}</text>
-        <text class='detailLabSty'>人申请</text>
+        <text class='detailLabSty_sl' style=''>{{salary}}</text>
+        <view class='applySty'>
+          <text class='detailLabSty' style='color:#ffcc00;font-size: 16px'>{{applyNum}}</text>
+          <text class='detailLabSty'>人申请</text>
+        </view>
        </view> 
       </view>
     </view>

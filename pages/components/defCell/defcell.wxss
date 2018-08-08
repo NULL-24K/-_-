@@ -64,9 +64,28 @@
   overflow:hidden */
 }
 
+.applySty{
+  text-align: right;
+  margin-right: 5px;
+}
+
 .lineSty{
   background-color: #9a9a9a;
   width: 100%;
   height: 1px;
+}
+
+.tipClass{
+  height: 20px;
+}
+.tipImgSty{
+  width: 10px;
+  height: 10px;
+}
+
+.tipTitleSty{
+  font-size: 10px;
+  text-align: center;
+
 }
 
