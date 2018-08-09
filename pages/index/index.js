@@ -60,6 +60,10 @@ Page({
 
 
     this.getLocationFun();
+    
+    this.setData({
+      tagImg:'/pages/images/other/cf_search_hot.png'
+    })
 
   },
 

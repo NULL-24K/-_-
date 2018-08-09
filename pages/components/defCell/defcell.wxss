@@ -29,9 +29,9 @@
  height: 36pt;
  margin-left: 10pt;
  margin-right: 10pt; 
- border-style:dashed ;
+ /* border-style:dashed ;
  border-width: 2px;
- border-color: #ffcc00;
+ border-color: #ffcc00; */
 }
 .imageBackSty{
   display: flex;
@@ -76,16 +76,25 @@
 }
 
 .tipClass{
-  height: 20px;
+  height: 21px;
+  display: flex;
+  align-items: center;
 }
 .tipImgSty{
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 20px;
+  margin-right: 5px;
 }
 
 .tipTitleSty{
   font-size: 10px;
   text-align: center;
-
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d9974a;
+  color: #d9974a;
+  padding-left: 1px;
+  padding-right: 1px;
+  font-weight: bolder;
 }
 

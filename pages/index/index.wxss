@@ -69,6 +69,6 @@ button::after{
 /*72 108 165  */
 .locationTitleSty{
   font-size: 14px;
-  color: rgb(72, 108, 165);
+  color: #d9974a;
   margin-left: 5px;
 }

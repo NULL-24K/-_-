@@ -17,7 +17,7 @@ Page({
      var list = options.list;
      var location_ = options.location;
      if(list){
-       location_ += ' (当前定位)',
+       location_ += ' (当前选择)',
        list = JSON.parse(list);
        this.setData({
          locationddress: location_,

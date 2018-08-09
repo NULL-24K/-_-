@@ -33,6 +33,8 @@
             years='{{item.workExperienc}}'
             salary='{{item.salary}}'
             applyNum='{{item.applyNum}}'
+            statusTag='热招中'
+            tagImg='{{tagImg}}'
             id="{{index}}"> 
   </defCell>
   <view wx:if='{{index !=itemArr.length -1}}' class='splyClass'></view>
