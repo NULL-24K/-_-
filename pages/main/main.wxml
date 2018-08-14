@@ -63,7 +63,7 @@
  <form  bindsubmit="formSubmit" report-submit="true">
  <view class='otherViewClass'>
   <button class='shareSty' open-type="share" >
-   <image class='shareImgSty'></image>
+   <image class='shareImgSty' src='{{shareImg}}'></image>
    <text class='shareTitleSty' >分享</text>
   </button>
   <button  formType="submit" class="{{applyState == '已申请'?'applySty':'UapplySty'}}" name='chubin' >{{applyState}}</button>

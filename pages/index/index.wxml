@@ -17,8 +17,8 @@
 <view class='warp' hidden='{{eye}}'>
     <button open-type="getUserInfo" hover-class='none' bindgetuserinfo="getUserInfoFun">点击登录</button> 
 </view>
-  <view class='locationbackSty'>
-    <image class='locationImgSty' src=''></image>
+  <view class='locationbackSty' bindtap='chooesdLocation'>
+    <image class='locationImgSty' src='{{addressImg}}'></image>
     <text class='locationTitleSty'>{{locationCity}}</text>
   </view>
   <view wx:for="{{itemArr}}">
@@ -33,6 +33,8 @@
             years='{{item.workExperienc}}'
             salary='{{item.salary}}'
             applyNum='{{item.applyNum}}'
+            statusTag='热招中'
+            tagImg='{{tagImg}}'
             id="{{index}}"> 
   </defCell>
   <view wx:if='{{index !=itemArr.length -1}}' class='splyClass'></view>

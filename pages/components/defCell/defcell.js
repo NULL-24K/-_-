@@ -36,6 +36,13 @@ Component({
       type: String,
       value: '888人申请'
     },
+    statusTag:{
+      type:String,
+      value:''
+    },
+    tagImg:{
+      type:String
+    }
 
   },
 

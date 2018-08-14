@@ -10,7 +10,8 @@ Page({
   data: {
     itemArr: [],
     eye: true,
-    locationCity:'合肥'
+    locationCity:'获取定位中...',
+    addressImg:'/pages/images/other/mood_addressImg.png'
   },
 
   pushDetailVC:function(index){
@@ -18,6 +19,27 @@ Page({
     var obj = that.data.itemArr[index.currentTarget.id];
     wx.navigateTo({
       url: '../main/main?jobID=' + obj.ID + '&administratorId=' + obj.administratorId,
+    })
+  },
+
+  chooesdLocation:function(){
+    var that = this;
+    wx.request({
+      url: app.baseUrl + 'jobs/openCityInfo',
+      header: app.header,
+      method: 'POST',
+      success: function (result) {
+        console.log(result);
+        if (result.data.code ==0){
+          var lisr = JSON.stringify(result.data.data);
+          wx.navigateTo({
+            url: '../main/location?location=' + that.data.locationCity + '&list=' + lisr,
+          })
+        }
+      },
+      complete: function () {
+
+      }
     })
   },
 
@@ -38,6 +60,10 @@ Page({
 
 
     this.getLocationFun();
+    
+    this.setData({
+      tagImg:'/pages/images/other/cf_search_hot.png'
+    })
 
   },
 
@@ -81,7 +107,7 @@ Page({
              method:'POST',
              data: { 'latitude': res.latitude,'longitude':res.longitude},
              success:function(successRes){
-               
+               console.log(successRes)
                that.setData({
                  locationCity:successRes.data.data
                })

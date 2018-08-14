@@ -57,17 +57,18 @@ button::after{
 .locationbackSty{
   display: flex;
   align-items: center;
-  height: 20px;
-  background: green;
+  height: 28px;
 }
 
 .locationImgSty{
   width: 14px;
-  height: 15px;
+  height: 18px;
+  margin-left: 15px;
+  background-color: white;
 }
-
+/*72 108 165  */
 .locationTitleSty{
   font-size: 14px;
-  color: red;
-  margin-left: 15px;
+  color: #d9974a;
+  margin-left: 5px;
 }

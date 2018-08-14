@@ -1,0 +1,13 @@
+<!--pages/main/location.wxml-->
+<view class='backSty'>
+  <view class='topSty'>
+   <image class='imageSty' src='{{locationIcon}}'></image>
+   <text class='titleSty'>{{locationddress}}</text>
+  </view>
+  <text class='moreCitySty'>更多城市</text>
+  <view wx:for='{{addressList}}'>
+    <view class='itemBackSty' bindtap='selectdCity' id='{{index}}'>
+      <text class='itemSty'>{{item}}</text>
+    </view>
+  </view>
+</view>
