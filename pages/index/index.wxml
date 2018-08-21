@@ -33,7 +33,7 @@
             years='{{item.workExperienc}}'
             salary='{{item.salary}}'
             applyNum='{{item.applyNum}}'
-            statusTag='热招中'
+            statusTag='{{item.statusTag}}'
             tagImg='{{tagImg}}'
             id="{{index}}"> 
   </defCell>

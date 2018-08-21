@@ -79,7 +79,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getNetData();
+    var _that = this;
+    setTimeout(function(){
+      _that.getNetData();
+    },200);
+
     // var that = this;
     // if (app.isLogin() && !this.data.isReloadData) {
     //   this.setData({
@@ -111,6 +115,9 @@ Page({
                that.setData({
                  locationCity:successRes.data.data
                })
+               setTimeout(function(){//延时0.1秒 重新获取职位信息
+                 that.getNetData();
+               },100);
              },
              complete: function () {
 
@@ -219,10 +226,15 @@ Page({
       title: '正在加载',
     })
     var that = this;
+    var reqdata = { type: 0, adminId: app.shareOrAdmin_ID()};
+    if (that.data.locationCity !='获取定位中...'){
+      reqdata.location = that.data.locationCity;
+    }
+   // console.log(reqdata)
     wx.request({
       url: app.baseUrl + 'jobs/jobList',
       method: 'POST',
-      data: { type: 0, adminId: app.shareOrAdmin_ID()},
+      data: reqdata,
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
@@ -275,72 +287,3 @@ Page({
 
 })
 
-// 1//index.js
-// //获取应用实例
-// const app = getApp()
-
-// Page({
-//   data: {
-//     motto: 'Hello World',
-//     userInfo: {},
-//     hasUserInfo: false,
-//     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-//     isSelectedBtn:false,
-//     btnStr:'点击测试',
-//   },
-//   //事件处理函数
-//   bindViewTap: function() {
-//     wx.navigateTo({
-//       url: '../logs/logs'
-//     })
-//   },
-//   pushMain:function(){
-//     wx.navigateTo({
-//       url: '../main/main',
-//     })
-//   },
-//   onLoad: function () {
-//     if (app.globalData.userInfo) {
-//       this.setData({
-//         userInfo: app.globalData.userInfo,
-//         hasUserInfo: true
-//       })
-//     } else if (this.data.canIUse){
-//       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-//       // 所以此处加入 callback 以防止这种情况
-//       app.userInfoReadyCallback = res => {
-//         this.setData({
-//           userInfo: res.userInfo,
-//           hasUserInfo: true
-//         })
-//       }
-//     } else {
-//       // 在没有 open-type=getUserInfo 版本的兼容处理
-//       wx.getUserInfo({
-//         success: res => {
-//           app.globalData.userInfo = res.userInfo
-//           this.setData({
-//             userInfo: res.userInfo,
-//             hasUserInfo: true
-//           })
-//         }
-//       })
-//     }
-//   },
-//   onClickBtn:function(){
-//     this.setData({
-//       isSelectedBtn: !this.data.isSelectedBtn,
-//     })
-//     this.setData({
-//       btnStr: this.data.btnStr =='点击测试' ? '已经被点击了' : '点击测试'
-//     })
-//   },
-//   getUserInfo: function(e) {
-//     console.log(e)
-//     app.globalData.userInfo = e.detail.userInfo
-//     this.setData({
-//       userInfo: e.detail.userInfo,
-//       hasUserInfo: true
-//     })
-//   }
-// })
