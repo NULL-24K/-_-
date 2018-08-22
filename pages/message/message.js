@@ -149,7 +149,7 @@ Page({
   pushDetail:function(e){
     
     var obj = this.data.itemArr[e.currentTarget.id];
-    //console.log(obj)
+    console.log(obj)
     wx.navigateTo({
       
       url: './messageSubClass/interDetail?obj=' +JSON.stringify(obj),

@@ -34,7 +34,7 @@
             salary='{{item.salary}}'
             applyNum='{{item.applyNum}}'
             statusTag='{{item.statusTag}}'
-            tagImg='{{tagImg}}'
+            tagImg='{{item.tagImgAddress}}'
             id="{{index}}"> 
   </defCell>
   <view wx:if='{{index !=itemArr.length -1}}' class='splyClass'></view>

@@ -60,11 +60,6 @@ Page({
 
 
     this.getLocationFun();
-    
-    this.setData({
-      tagImg:'/pages/images/other/cf_search_hot.png'
-    })
-
   },
 
 
@@ -82,7 +77,7 @@ Page({
     var _that = this;
     setTimeout(function(){
       _that.getNetData();
-    },200);
+    },150);
 
     // var that = this;
     // if (app.isLogin() && !this.data.isReloadData) {
@@ -124,6 +119,17 @@ Page({
              }
            })
          },
+         fail:function(err){
+           //用户拒绝授权 显示授权失败，并在1.5秒后切换回默认地点
+           that.setData({
+             locationCity:'获取定位失败，即将切换至默认地址'
+           })
+           setTimeout(function(){
+             that.setData({
+               locationCity: '合肥'
+             })
+           },2000)
+         }
        })
      }
   },
@@ -238,8 +244,13 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
-          //console.log(obj)
+          console.log(obj)
           if (obj.code == 0) {
+            for (var i = 0; i < obj.data.length;i++){
+              if (obj.data[i].tagImgAddress == 'default') {
+                obj.data[i].tagImgAddress = '/pages/images/other/cf_search_hot.png';
+              }
+            }
             that.setData({
               itemArr: obj.data
             })

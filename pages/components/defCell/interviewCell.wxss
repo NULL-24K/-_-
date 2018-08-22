@@ -39,14 +39,14 @@
   font-size: 12px;
   margin-left: 5pt;
   width: 60%;
-  color: lightgray;
+  color: #b2b2b2;
   line-height: 20pt;
 }
 
 .timeSty{
   font-size: 12px;
   margin-right: 5pt;
-  color: lightgray;
+  color: #b2b2b2;
   line-height: 20pt;
   white-space:nowrap;
   text-overflow: ellipsis;

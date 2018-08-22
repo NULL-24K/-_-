@@ -20,7 +20,7 @@ Page({
     // console.log(obj)
     this.setData({
       titleStr: obj.jobName,
-      detailStr:'7000-12000',
+      detailStr: obj.companyName,
       intenViewObj:obj
     });
     this.getNetData()
