@@ -29,8 +29,8 @@ Page({
       header: app.header,
       method: 'POST',
       success: function (result) {
-        console.log(result);
-        if (result.data.code ==0){
+       // console.log(result);
+        if (result.data.code ==1){
           var lisr = JSON.stringify(result.data.data);
           wx.navigateTo({
             url: '../main/location?location=' + that.data.locationCity + '&list=' + lisr,
@@ -57,8 +57,6 @@ Page({
     setTimeout(function(){
       that.getNetData();
     },100);
-
-
     this.getLocationFun();
   },
 
@@ -106,7 +104,7 @@ Page({
              method:'POST',
              data: { 'latitude': res.latitude,'longitude':res.longitude},
              success:function(successRes){
-               console.log(successRes)
+              // console.log(successRes)
                that.setData({
                  locationCity:successRes.data.data
                })
@@ -151,7 +149,7 @@ Page({
               data: { code: _res.code},
               method: 'POST',    
               success: function (result) {
-                console.log(result)
+               // console.log(result)
                 if (result.data.code == 0 && result.data.data){
                   app.weChatInfo = result.data.data;
                   if (result.data.data.token){//如果已经使用手机号码注册 此处直接登录
@@ -222,7 +220,7 @@ Page({
       title: '上蜜蜂直聘,发现更多机会',
       path: '/pages/index/index?shareId=' + shareId,
       success: function (res) {
-        console.log(res)
+       // console.log(res)
       }
     }
   },
@@ -244,7 +242,6 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
-          console.log(obj)
           if (obj.code == 0) {
             for (var i = 0; i < obj.data.length;i++){
               if (obj.data[i].tagImgAddress == 'default') {

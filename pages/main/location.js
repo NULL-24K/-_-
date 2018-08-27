@@ -27,7 +27,7 @@ Page({
   },
 
   selectdCity:function(index){
-    console.log(index);
+   /// console.log(index);
     var arr = getCurrentPages();
     var addressStr = this.data.addressList[index.currentTarget.id];
     wx.navigateBack({
@@ -52,6 +52,41 @@ Page({
   onShow: function () {
   
   },
+
+
+  YC_HttpClick:function(URL,methodType,isShowLoading,params,callBack){
+    if(isShowLoading){
+      wx.showLoading({
+        title: '加载中...',
+      })
+    }
+    wx.request({
+      url: 'https://'+URL,
+      method: methodType==0?'GET':'POST',
+      header: '',
+      data: params,
+      success: function (res) {
+        var backData = {
+          code:0,
+          data:res
+        }
+        callBack(backData)
+      },
+      fail: function (err) {
+        var backData = {
+          code: 1,
+          data: res
+        }
+      },
+      complete: function () {
+        if (isShowLoading) {
+          wx.hideLoading();
+        }
+      }
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面隐藏
