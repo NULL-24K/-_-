@@ -242,6 +242,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
+          console.log(obj);
           if (obj.code == 0) {
             for (var i = 0; i < obj.data.length;i++){
               if (obj.data[i].tagImgAddress == 'default') {
