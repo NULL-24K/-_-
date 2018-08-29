@@ -229,7 +229,7 @@ Page({
     if (!app.isLogin()){
       util.userLogin();
     }else{
-      if (that.data.applyState == '已申请'){
+      if (that.data.applyState == ''){
         wx.showToast({
           title: '您已申请该职位,去消息中心查看简历处理情况吧',
           icon:'none'
