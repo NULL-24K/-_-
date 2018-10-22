@@ -74,3 +74,9 @@
   margin-bottom: 10px;
   width: 100px;
 }
+
+.notifClsss{
+  margin-top: 6px;
+  color: lightgray;
+  font-size: 13px;
+}

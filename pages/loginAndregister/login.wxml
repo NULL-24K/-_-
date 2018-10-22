@@ -22,7 +22,9 @@
           bindinput='endInputPsd' 
           class='inputSty'></input>
   </view>
+  
   <button class='loginBtnSty' bindtap='logintap'>登录</button>
+  <text class='notifClsss'>只需5秒,轻松找工作</text>
   <!-- <view class='otherBtnBackSty'>
     <text class='otherBtnSty'>立即注册</text>
     <text class='otherBtnSty'>忘记密码</text>

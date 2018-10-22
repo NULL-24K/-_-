@@ -6,5 +6,5 @@
                 arrowImg="">
   </userInfoCell>
  </view>
- <button class='btnSty' bindtap='pushWorkDetail'>继续添加教育经历</button>
+ <button class='btnSty' bindtap='pushWorkDetail'>继续添加工作经历</button>
 </view>

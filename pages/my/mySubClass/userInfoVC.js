@@ -239,11 +239,17 @@ Page({
     //.提交之前再做正则判断
 
     var alertTitle = '';
-    if (!util.formatIsTrue(4,this.data.dataArr[1][1].detail)){
-      alertTitle = '邮箱格式不正确';
-    } else if (!util.formatIsTrue(3, this.data.dataArr[1][0].detail)){
+    // if (!util.formatIsTrue(4,this.data.dataArr[1][1].detail)){
+    //   alertTitle = '邮箱格式不正确';
+    // } else
+    //if()
+    var phoneNum = this.data.dataArr[1][0].detail;
+    if (phoneNum.length < 11){
       alertTitle = '手机号码格式不正确'
     }
+    //  if (!util.formatIsTrue(3, this.data.dataArr[1][0].detail)){
+    //   alertTitle = '手机号码格式不正确'
+    // }
 
     if (alertTitle.length >0){
       wx.showToast({

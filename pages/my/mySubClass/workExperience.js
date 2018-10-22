@@ -9,8 +9,8 @@ Page({
    styData:[
      {title:'公司',placehoderStr:'必填',pickDataArr:[]},
      { title: '职位', placehoderStr: '必填', pickDataArr: [] },
-     { title: '开始时间', placehoderStr: '必选', pickDataArr: [], value: ['35', '6'] },
-     { title: '结束时间', placehoderStr: '必选', pickDataArr: [], value: ['35', '6'] }
+     { title: '开始时间', placehoderStr: '必选', pickDataArr: [], value: ['10', '6'] },
+     { title: '结束时间', placehoderStr: '必选', pickDataArr: [], value: ['10', '9'] }
    ],
    valueArr:['','','',''],
    inputTextNum:0,
@@ -22,7 +22,7 @@ Page({
   startDataArr:function(){
     var dataA = [];
     var monthArr = [];
-    for (var i = 1980 ; i <2018 ; i ++){
+    for (var i = 2008 ; i <=2018 ; i ++){
       dataA.push(i+'年');
     }
     for (var j =1 ; j <=12; j ++){
@@ -113,7 +113,7 @@ Page({
       },
       complete:function(){
         that.setData({
-          subMitIsEnable: false
+          subMitIsEnable: true
         })
        // wx.hideLoading();
       }
@@ -217,7 +217,7 @@ Page({
 
   submitData:function(){
     var that = this;
-    
+    console.log(this.data.subMitIsEnable);
     if (!that.data.subMitIsEnable){
       return;
     }

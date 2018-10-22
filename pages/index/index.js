@@ -98,9 +98,8 @@ Page({
      }else{
        wx.getLocation({
          success: function(res) {
-          
            wx.request({//https://ahgoldbee.cn/jobs/LocationCityInfo
-             url: app.baseUrl + 'jobs/LocationCityInfo',
+             url: app.baseUrl + 'jobs/Loca1tionCityInfo',
              method:'POST',
              data: { 'latitude': res.latitude,'longitude':res.longitude},
              success:function(successRes){
@@ -140,10 +139,11 @@ Page({
         that.setData({
           eye: true
         })
+        
         wx.login({
           success: _res => {
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            
+           // console.log(_res);
             wx.request({
               url: app.baseUrl +'account/weChatLogin',
               data: { code: _res.code},

@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    defDataArr: [{ title: '开始时间', pickerDataArr: [], pickerMode: 'multiSelector', value: ['35', '6']},
-      { title: '结束时间', pickerDataArr: [], pickerMode: 'multiSelector',value:['35','6'] },
+    defDataArr: [{ title: '开始时间', pickerDataArr: [], pickerMode: 'multiSelector', value: ['10', '8']},
+      { title: '结束时间', pickerDataArr: [], pickerMode: 'multiSelector',value:['11','6'] },
           { title: '学校', pickerDataArr: [], pickerMode: '' },
           { title: '专业', pickerDataArr: [], pickerMode: '' },
           { title: '学历', pickerDataArr: ['小学', '初中', '高中', '大专', '本科', '硕士'], pickerMode: 'selector' }],
@@ -21,7 +21,7 @@ Page({
   startDataArr: function () {
     var dataA = [];
     var monthArr = [];
-    for (var i = 1980; i < 2018; i++) {
+    for (var i = 2008; i < 2022; i++) {
       dataA.push(i + '年');
     }
     for (var j = 1; j <= 12; j++) {
