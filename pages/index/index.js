@@ -29,7 +29,7 @@ Page({
       header: app.header,
       method: 'POST',
       success: function (result) {
-       // console.log(result);
+        console.log(result);
         if (result.data.code ==1){
           var lisr = JSON.stringify(result.data.data);
           wx.navigateTo({
@@ -77,6 +77,7 @@ Page({
       _that.getNetData();
     },150);
 
+
     // var that = this;
     // if (app.isLogin() && !this.data.isReloadData) {
     //   this.setData({
@@ -89,7 +90,6 @@ Page({
     //   }, 100)
     // }
   },
-
   getLocationFun:function(){
      var locationInfo = wx.getStorageSync('locationKey_mfzp');
      var that = this;
@@ -98,12 +98,11 @@ Page({
      }else{
        wx.getLocation({
          success: function(res) {
-           wx.request({//https://ahgoldbee.cn/jobs/LocationCityInfo
+           wx.request({
              url: app.baseUrl + 'jobs/Loca1tionCityInfo',
              method:'POST',
              data: { 'latitude': res.latitude,'longitude':res.longitude},
              success:function(successRes){
-              // console.log(successRes)
                that.setData({
                  locationCity:successRes.data.data
                })
@@ -112,7 +111,6 @@ Page({
                },100);
              },
              complete: function () {
-
              }
            })
          },
@@ -242,7 +240,6 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           var obj = res.data;
-          console.log(obj);
           if (obj.code == 0) {
             for (var i = 0; i < obj.data.length;i++){
               if (obj.data[i].tagImgAddress == 'default') {
