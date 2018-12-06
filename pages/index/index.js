@@ -11,7 +11,8 @@ Page({
     itemArr: [],
     eye: true,
     locationCity:'获取定位中...',
-    addressImg:'/pages/images/other/mood_addressImg.png'
+    addressImg:'/pages/images/other/mood_addressImg.png',
+    inLocationCity:'合肥'
   },
 
   pushDetailVC:function(index){
@@ -28,6 +29,7 @@ Page({
       url: app.baseUrl + 'jobs/openCityInfo',
       header: app.header,
       method: 'POST',
+      data: { inLocationCity: that.data.inLocationCity},
       success: function (result) {
         console.log(result);
         if (result.data.code ==1){
@@ -104,7 +106,8 @@ Page({
              data: { 'latitude': res.latitude,'longitude':res.longitude},
              success:function(successRes){
                that.setData({
-                 locationCity:successRes.data.data
+                 locationCity:successRes.data.data,
+                 inLocationCity: successRes.data.data
                })
                setTimeout(function(){//延时0.1秒 重新获取职位信息
                  that.getNetData();
@@ -121,7 +124,8 @@ Page({
            })
            setTimeout(function(){
              that.setData({
-               locationCity: '合肥'
+               locationCity: '合肥',
+               inLocationCity:'合肥'
              })
            },2000)
          }
