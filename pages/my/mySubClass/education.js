@@ -21,7 +21,7 @@ Page({
   startDataArr: function () {
     var dataA = [];
     var monthArr = [];
-    for (var i = 2008; i < 2022; i++) {
+    for (var i = 2008; i < 2024; i++) {
       dataA.push(i + '年');
     }
     for (var j = 1; j <= 12; j++) {

@@ -38,7 +38,7 @@
      
   <view class='cellBackSty'>
       <view wx:for="{{dataArr[2]}}" bindtap='itemSelect' wx:key="{{index}}" id="{{'3'+index}}">
-        <picker mode="{{pickerModeArr[index]}}" value="{{item.value}}" start="1980-01-01" end="2018-6-1" bindchange="bindPickerChange" range="{{index===1?diplomaArr:jobYearsArr}}" id='{{index}}'>
+        <picker mode="{{pickerModeArr[index]}}" value="{{item.value}}" start="1980-01-01" end="2023-6-1" bindchange="bindPickerChange" range="{{index===1?diplomaArr:jobYearsArr}}" id='{{index}}'>
           <mycell title='{{item.title}}'
                 detail='{{item.detail}}'
                 placeholderStr='{{item.placehoderStr}}

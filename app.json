@@ -19,7 +19,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffcc00",
     "navigationBarTitleText": "直🐝聘",
-    "navigationBarTextStyle": "dark",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#f5f5f5"
   },
   "tabBar": {
@@ -44,5 +44,6 @@
         "selectedIconPath": "pages/images/my_sel.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

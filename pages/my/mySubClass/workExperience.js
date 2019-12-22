@@ -22,7 +22,7 @@ Page({
   startDataArr:function(){
     var dataA = [];
     var monthArr = [];
-    for (var i = 2008 ; i <=2018 ; i ++){
+    for (var i = 2008 ; i <=2023 ; i ++){
       dataA.push(i+'年');
     }
     for (var j =1 ; j <=12; j ++){
