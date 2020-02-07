@@ -15,6 +15,11 @@
     "pages/my/mySubClass/helpAndSetting",
     "pages/main/location"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "蜜蜂直聘希望能够通过定位来帮助您推荐附件职位"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffcc00",

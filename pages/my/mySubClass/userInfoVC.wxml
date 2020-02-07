@@ -40,10 +40,7 @@
       <view wx:for="{{dataArr[2]}}" bindtap='itemSelect' wx:key="{{index}}" id="{{'3'+index}}">
         <picker mode="{{pickerModeArr[index]}}" value="{{item.value}}" start="1980-01-01" end="2023-6-1" bindchange="bindPickerChange" range="{{index===1?diplomaArr:jobYearsArr}}" id='{{index}}'>
           <mycell title='{{item.title}}'
-                detail='{{item.detail}}'
-                placeholderStr='{{item.placehoderStr}}
-                isDisabled='{{true}}'
-         >
+                detail='{{item.detail}}' placeholderStr='{{item.placehoderStr}} isDisabled='true' >
          </mycell>
         </picker>
         <view class='shortLineSty' wx:if="{{index!=(dataArr[2].length-1)}}"></view>
